@@ -29,5 +29,6 @@
             <Button Content="Выход" Click="ExitToAuth" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Right" Height="50" Width="150" Margin="20"/>
         </WrapPanel>
         <Frame Name="ContentFrame" Grid.Column="1" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+        <TextBlock/>
     </Grid>
 </Page>

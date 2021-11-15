@@ -10,7 +10,7 @@
         <EntityTypeShape EntityType="DBModel.Lodgers_Kids" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.OrdersReg" Width="1.5" PointX="7.5" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.Rooms" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.sysdiagrams" Width="1.5" PointX="5.375" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.Users" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.Workers" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
         <AssociationConnector Association="DBModel.FK_Rooms_Classes" ManuallyRouted="false" />
