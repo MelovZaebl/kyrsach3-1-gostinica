@@ -87,6 +87,9 @@
     <Compile Include="Pages\MainUI.xaml.cs">
       <DependentUpon>MainUI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\UsersUI.xaml.cs">
+      <DependentUpon>UsersUI.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\WorkerMainUI.xaml.cs">
       <DependentUpon>WorkerMainUI.xaml</DependentUpon>
     </Compile>
@@ -132,6 +135,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\MainUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UsersUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

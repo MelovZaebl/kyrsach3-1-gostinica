@@ -1,0 +1,23 @@
+﻿<Page x:Class="Курсач.Pages.UsersUI"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Курсач.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="810" d:DesignWidth="1231"
+      Title="UsersUI">
+
+    <Grid Background="{StaticResource MainBG}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <DataGrid Name="UsersTable" IsReadOnly="True" AutoGenerateColumns="False" ColumnWidth="*">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Username" Binding="{Binding Username}"/>
+                <DataGridTextColumn Header="Password" Binding="{Binding Password}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>
