@@ -16,22 +16,24 @@
         </EntityType>
         <EntityType Name="Lodgers">
           <Key>
-            <PropertyRef Name="Passport" />
+            <PropertyRef Name="ID" />
           </Key>
           <Property Name="FIO" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Passport" Type="int" Nullable="false" />
           <Property Name="Room" Type="int" Nullable="false" />
           <Property Name="Phone" Type="nvarchar" MaxLength="11" Nullable="false" />
           <Property Name="Pol" Type="bit" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="Lodgers_Kids">
           <Key>
-            <PropertyRef Name="Svidet_Num" />
+            <PropertyRef Name="ID" />
           </Key>
           <Property Name="FIO" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Parent_Passport" Type="int" Nullable="false" />
           <Property Name="Pol" Type="bit" Nullable="false" />
           <Property Name="Svidet_Num" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="OrdersReg">
           <Key>
@@ -39,19 +41,20 @@
           </Key>
           <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="OrderDate" Type="datetime" Nullable="false" />
-          <Property Name="LodgerPass" Type="int" Nullable="false" />
+          <Property Name="LodgerID" Type="int" Nullable="false" />
           <Property Name="StartDate" Type="date" Nullable="false" />
           <Property Name="StopDate" Type="date" Nullable="false" />
           <Property Name="WorkerFIO" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Rooms">
           <Key>
-            <PropertyRef Name="Room" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="Room" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Room" Type="int" Nullable="false" />
           <Property Name="Class" Type="int" Nullable="false" />
           <Property Name="Photo" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -65,41 +68,30 @@
         </EntityType>
         <EntityType Name="Users">
           <Key>
-            <PropertyRef Name="Username" />
+            <PropertyRef Name="ID" />
           </Key>
           <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="Workers">
           <Key>
-            <PropertyRef Name="Username" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="FIO" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Doljnost" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Phone" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <Association Name="FK_Lodgers_Kids_Lodgers">
           <End Role="Lodgers" Type="Self.Lodgers" Multiplicity="1" />
           <End Role="Lodgers_Kids" Type="Self.Lodgers_Kids" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Lodgers">
-              <PropertyRef Name="Passport" />
+              <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Lodgers_Kids">
               <PropertyRef Name="Parent_Passport" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Lodgers_Rooms">
-          <End Role="Rooms" Type="Self.Rooms" Multiplicity="1" />
-          <End Role="Lodgers" Type="Self.Lodgers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Rooms">
-              <PropertyRef Name="Room" />
-            </Principal>
-            <Dependent Role="Lodgers">
-              <PropertyRef Name="Room" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -108,10 +100,10 @@
           <End Role="OrdersReg" Type="Self.OrdersReg" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Lodgers">
-              <PropertyRef Name="Passport" />
+              <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="OrdersReg">
-              <PropertyRef Name="LodgerPass" />
+              <PropertyRef Name="LodgerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -127,15 +119,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Workers_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+        <Association Name="FK_Users_Workers">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Username" />
+            <Principal Role="Workers">
+              <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Workers">
-              <PropertyRef Name="Username" />
+            <Dependent Role="Users">
+              <PropertyRef Name="ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -152,10 +144,6 @@
             <End Role="Lodgers" EntitySet="Lodgers" />
             <End Role="Lodgers_Kids" EntitySet="Lodgers_Kids" />
           </AssociationSet>
-          <AssociationSet Name="FK_Lodgers_Rooms" Association="Self.FK_Lodgers_Rooms">
-            <End Role="Rooms" EntitySet="Rooms" />
-            <End Role="Lodgers" EntitySet="Lodgers" />
-          </AssociationSet>
           <AssociationSet Name="FK_OrdersReg_Lodgers" Association="Self.FK_OrdersReg_Lodgers">
             <End Role="Lodgers" EntitySet="Lodgers" />
             <End Role="OrdersReg" EntitySet="OrdersReg" />
@@ -164,9 +152,9 @@
             <End Role="Classes" EntitySet="Classes" />
             <End Role="Rooms" EntitySet="Rooms" />
           </AssociationSet>
-          <AssociationSet Name="FK_Workers_Users" Association="Self.FK_Workers_Users">
-            <End Role="Users" EntitySet="Users" />
+          <AssociationSet Name="FK_Users_Workers" Association="Self.FK_Users_Workers">
             <End Role="Workers" EntitySet="Workers" />
+            <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -186,25 +174,26 @@
         </EntityType>
         <EntityType Name="Lodgers">
           <Key>
-            <PropertyRef Name="Passport" />
+            <PropertyRef Name="ID" />
           </Key>
           <Property Name="FIO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Passport" Type="Int32" Nullable="false" />
           <Property Name="Room" Type="Int32" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Pol" Type="Boolean" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Lodgers_Kids" Relationship="Self.FK_Lodgers_Kids_Lodgers" FromRole="Lodgers" ToRole="Lodgers_Kids" />
-          <NavigationProperty Name="Rooms" Relationship="Self.FK_Lodgers_Rooms" FromRole="Lodgers" ToRole="Rooms" />
           <NavigationProperty Name="OrdersReg" Relationship="Self.FK_OrdersReg_Lodgers" FromRole="Lodgers" ToRole="OrdersReg" />
         </EntityType>
         <EntityType Name="Lodgers_Kids">
           <Key>
-            <PropertyRef Name="Svidet_Num" />
+            <PropertyRef Name="ID" />
           </Key>
           <Property Name="FIO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Parent_Passport" Type="Int32" Nullable="false" />
           <Property Name="Pol" Type="Boolean" Nullable="false" />
           <Property Name="Svidet_Num" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Lodgers" Relationship="Self.FK_Lodgers_Kids_Lodgers" FromRole="Lodgers_Kids" ToRole="Lodgers" />
         </EntityType>
         <EntityType Name="OrdersReg">
@@ -213,7 +202,7 @@
           </Key>
           <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="LodgerPass" Type="Int32" Nullable="false" />
+          <Property Name="LodgerID" Type="Int32" Nullable="false" />
           <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="StopDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="WorkerFIO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -221,14 +210,14 @@
         </EntityType>
         <EntityType Name="Rooms">
           <Key>
-            <PropertyRef Name="Room" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="Room" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Room" Type="Int32" Nullable="false" />
           <Property Name="Class" Type="Int32" Nullable="false" />
           <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Classes" Relationship="Self.FK_Rooms_Classes" FromRole="Rooms" ToRole="Classes" />
-          <NavigationProperty Name="Lodgers" Relationship="Self.FK_Lodgers_Rooms" FromRole="Rooms" ToRole="Lodgers" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -242,21 +231,22 @@
         </EntityType>
         <EntityType Name="Users">
           <Key>
-            <PropertyRef Name="Username" />
+            <PropertyRef Name="ID" />
           </Key>
           <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Workers" Relationship="Self.FK_Workers_Users" FromRole="Users" ToRole="Workers" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_Users_Workers" FromRole="Users" ToRole="Workers" />
         </EntityType>
         <EntityType Name="Workers">
           <Key>
-            <PropertyRef Name="Username" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="FIO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Doljnost" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_Workers_Users" FromRole="Workers" ToRole="Users" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_Workers" FromRole="Workers" ToRole="Users" />
         </EntityType>
         <Association Name="FK_Rooms_Classes">
           <End Role="Classes" Type="Self.Classes" Multiplicity="1" />
@@ -275,22 +265,10 @@
           <End Role="Lodgers_Kids" Type="Self.Lodgers_Kids" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Lodgers">
-              <PropertyRef Name="Passport" />
+              <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Lodgers_Kids">
               <PropertyRef Name="Parent_Passport" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Lodgers_Rooms">
-          <End Role="Rooms" Type="Self.Rooms" Multiplicity="1" />
-          <End Role="Lodgers" Type="Self.Lodgers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Rooms">
-              <PropertyRef Name="Room" />
-            </Principal>
-            <Dependent Role="Lodgers">
-              <PropertyRef Name="Room" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -299,22 +277,22 @@
           <End Role="OrdersReg" Type="Self.OrdersReg" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Lodgers">
-              <PropertyRef Name="Passport" />
+              <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="OrdersReg">
-              <PropertyRef Name="LodgerPass" />
+              <PropertyRef Name="LodgerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Workers_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+        <Association Name="FK_Users_Workers">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Username" />
+            <Principal Role="Workers">
+              <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Workers">
-              <PropertyRef Name="Username" />
+            <Dependent Role="Users">
+              <PropertyRef Name="ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -335,17 +313,13 @@
             <End Role="Lodgers" EntitySet="Lodgers" />
             <End Role="Lodgers_Kids" EntitySet="Lodgers_Kids" />
           </AssociationSet>
-          <AssociationSet Name="FK_Lodgers_Rooms" Association="Self.FK_Lodgers_Rooms">
-            <End Role="Rooms" EntitySet="Rooms" />
-            <End Role="Lodgers" EntitySet="Lodgers" />
-          </AssociationSet>
           <AssociationSet Name="FK_OrdersReg_Lodgers" Association="Self.FK_OrdersReg_Lodgers">
             <End Role="Lodgers" EntitySet="Lodgers" />
             <End Role="OrdersReg" EntitySet="OrdersReg" />
           </AssociationSet>
-          <AssociationSet Name="FK_Workers_Users" Association="Self.FK_Workers_Users">
-            <End Role="Users" EntitySet="Users" />
+          <AssociationSet Name="FK_Users_Workers" Association="Self.FK_Users_Workers">
             <End Role="Workers" EntitySet="Workers" />
+            <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -372,6 +346,7 @@
                 <ScalarProperty Name="Room" ColumnName="Room" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Pol" ColumnName="Pol" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -382,6 +357,7 @@
                 <ScalarProperty Name="Parent_Passport" ColumnName="Parent_Passport" />
                 <ScalarProperty Name="Pol" ColumnName="Pol" />
                 <ScalarProperty Name="Svidet_Num" ColumnName="Svidet_Num" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -390,7 +366,7 @@
               <MappingFragment StoreEntitySet="OrdersReg">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
-                <ScalarProperty Name="LodgerPass" ColumnName="LodgerPass" />
+                <ScalarProperty Name="LodgerID" ColumnName="LodgerID" />
                 <ScalarProperty Name="StartDate" ColumnName="StartDate" />
                 <ScalarProperty Name="StopDate" ColumnName="StopDate" />
                 <ScalarProperty Name="WorkerFIO" ColumnName="WorkerFIO" />
@@ -404,6 +380,7 @@
                 <ScalarProperty Name="Class" ColumnName="Class" />
                 <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -423,16 +400,17 @@
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Workers">
             <EntityTypeMapping TypeName="DBModel.Workers">
               <MappingFragment StoreEntitySet="Workers">
-                <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="FIO" ColumnName="FIO" />
                 <ScalarProperty Name="Doljnost" ColumnName="Doljnost" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -14,10 +14,10 @@ namespace Курсач
     
     public partial class Workers
     {
-        public string Username { get; set; }
         public string FIO { get; set; }
         public string Doljnost { get; set; }
         public string Phone { get; set; }
+        public int ID { get; set; }
     
         public virtual Users Users { get; set; }
     }

@@ -16,7 +16,7 @@ namespace Курсач
     {
         public int OrderID { get; set; }
         public System.DateTime OrderDate { get; set; }
-        public int LodgerPass { get; set; }
+        public int LodgerID { get; set; }
         public System.DateTime StartDate { get; set; }
         public System.DateTime StopDate { get; set; }
         public string WorkerFIO { get; set; }

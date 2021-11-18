@@ -18,6 +18,7 @@ namespace Курсач
         public int Parent_Passport { get; set; }
         public bool Pol { get; set; }
         public string Svidet_Num { get; set; }
+        public int ID { get; set; }
     
         public virtual Lodgers Lodgers { get; set; }
     }

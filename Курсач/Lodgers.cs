@@ -26,10 +26,10 @@ namespace Курсач
         public int Room { get; set; }
         public string Phone { get; set; }
         public bool Pol { get; set; }
+        public int ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Lodgers_Kids> Lodgers_Kids { get; set; }
-        public virtual Rooms Rooms { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrdersReg> OrdersReg { get; set; }
     }

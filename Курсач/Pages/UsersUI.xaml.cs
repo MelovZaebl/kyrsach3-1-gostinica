@@ -23,7 +23,34 @@ namespace Курсач.Pages
         public UsersUI()
         {
             InitializeComponent();
+            UsersTable.Items.Clear();
             UsersTable.ItemsSource = MainWindow.DB.Users.ToList();
+            UpdateAgents();
+        }
+
+        private void UpdateAgents()
+        {
+            UsersTable.ItemsSource = null;
+            UsersTable.ItemsSource = MainWindow.DB.Users.ToList();
+        }
+
+        private void Add(object sender, RoutedEventArgs e)
+        {
+            int style = 1;
+            Users user = new Users();
+            Windows.UsersUpdate win = new Windows.UsersUpdate(user, style);
+            win.ShowDialog();
+            UpdateAgents();
+        }
+
+        private void Change(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Delete(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
