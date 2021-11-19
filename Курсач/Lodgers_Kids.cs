@@ -15,7 +15,7 @@ namespace Курсач
     public partial class Lodgers_Kids
     {
         public string FIO { get; set; }
-        public int Parent_Passport { get; set; }
+        public int Parent_ID { get; set; }
         public bool Pol { get; set; }
         public string Svidet_Num { get; set; }
         public int ID { get; set; }

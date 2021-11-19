@@ -26,14 +26,7 @@ namespace Курсач.Windows
         {
             InitializeComponent();
             this.User = user;
-            foreach(var worker in MainWindow.DB.Workers.ToList())
-            {
-                if (user.ID == worker.ID)
-                {
-                    Worker = worker;
-                }
-                else Worker = new Workers();
-            }
+            Worker = new Workers();
             DataContext = user;
             if(style == 1)
             {
@@ -45,12 +38,14 @@ namespace Курсач.Windows
                 btnSave.Visibility = Visibility.Hidden;
                 btnEdit.Visibility = Visibility.Visible;
             }
+            AddDoljnost.Items.Add("Администратор гостиницы");
+            AddDoljnost.Items.Add("Администратор программы");
         }
 
         private void Save(object sender, RoutedEventArgs e)
         {
             Worker.FIO = AddFIO.Text;
-            Worker.Doljnost = AddDoljnost.Text;
+            Worker.Doljnost = AddDoljnost.SelectedValue.ToString();
             Worker.Phone = AddPhone.Text;
 
             string error = String.Empty;
@@ -81,10 +76,13 @@ namespace Курсач.Windows
             }
             else
             {
-                //MainWindow.DB.Workers.Add(Worker);
-                MainWindow.DB.Users.Add(User);
-                MainWindow.DB.SaveChanges();
-                this.Close();
+                if(Worker.ID == 0 && User.ID == 0)
+                {
+                    MainWindow.DB.Workers.Add(Worker);
+                    MainWindow.DB.Users.Add(User);
+                    MainWindow.DB.SaveChanges();
+                    this.Close();
+                }
             }
         }
 

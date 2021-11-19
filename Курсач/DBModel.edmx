@@ -30,7 +30,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="FIO" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Parent_Passport" Type="int" Nullable="false" />
+          <Property Name="Parent_ID" Type="int" Nullable="false" />
           <Property Name="Pol" Type="bit" Nullable="false" />
           <Property Name="Svidet_Num" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
@@ -72,7 +72,7 @@
           </Key>
           <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Workers">
           <Key>
@@ -91,7 +91,7 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Lodgers_Kids">
-              <PropertyRef Name="Parent_Passport" />
+              <PropertyRef Name="Parent_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -190,7 +190,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="FIO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Parent_Passport" Type="Int32" Nullable="false" />
+          <Property Name="Parent_ID" Type="Int32" Nullable="false" />
           <Property Name="Pol" Type="Boolean" Nullable="false" />
           <Property Name="Svidet_Num" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
@@ -235,7 +235,7 @@
           </Key>
           <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Workers" Relationship="Self.FK_Users_Workers" FromRole="Users" ToRole="Workers" />
         </EntityType>
         <EntityType Name="Workers">
@@ -268,7 +268,7 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Lodgers_Kids">
-              <PropertyRef Name="Parent_Passport" />
+              <PropertyRef Name="Parent_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -354,7 +354,7 @@
             <EntityTypeMapping TypeName="DBModel.Lodgers_Kids">
               <MappingFragment StoreEntitySet="Lodgers_Kids">
                 <ScalarProperty Name="FIO" ColumnName="FIO" />
-                <ScalarProperty Name="Parent_Passport" ColumnName="Parent_Passport" />
+                <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
                 <ScalarProperty Name="Pol" ColumnName="Pol" />
                 <ScalarProperty Name="Svidet_Num" ColumnName="Svidet_Num" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
