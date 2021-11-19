@@ -40,7 +40,7 @@ namespace Курсач.Pages
 
         private void ExitToAuth(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new Authorization());
         }
 
         private void ShowUsers(object sender, RoutedEventArgs e)
@@ -63,6 +63,8 @@ namespace Курсач.Pages
             BtnShowOrders.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#414141");
             BtnShowLodgers.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#414141");
             BtnShowLodgerKids.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#414141");
+
+            ContentFrame.Navigate(new WorkersUI());
         }
 
         private void ShowRooms(object sender, RoutedEventArgs e)

@@ -1,0 +1,27 @@
+﻿<Window x:Class="Курсач.Windows.WorkersUpdate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Курсач.Windows"
+        mc:Ignorable="d"
+        Title="Редактирование записи" Height="230" Width="400">
+    <StackPanel Background="{StaticResource MainBG}">
+        <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
+            <TextBlock FontSize="15" Text="ФИО работника"/>
+            <TextBox Height="20" FontSize="15" Text="{Binding FIO}" Width="200" Margin="38 0 0 0"/>
+        </WrapPanel>
+        <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
+            <TextBlock FontSize="15" Text="Должность"/>
+            <TextBox Height="20" FontSize="15" Text="{Binding Doljnost}" Width="200" Margin="70 0 0 0"/>
+        </WrapPanel>
+        <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
+            <TextBlock FontSize="15" Text="Телефон"/>
+            <TextBox Height="20" FontSize="15" Text="{Binding Phone}" Width="200" Margin="85 0 0 0"/>
+        </WrapPanel>
+        <Grid>
+            <Button Name="btnSave" Click="Save" Content="Сохранить" Width="100" Height="30" Margin="0 20 0 0" Visibility="Hidden"/>
+            <Button Name="btnEdit" Click="Edit" Content="Изменить" Width="100" Height="30" Margin="0 20 0 0" Visibility="Hidden"/>
+        </Grid>
+    </StackPanel>
+</Window>

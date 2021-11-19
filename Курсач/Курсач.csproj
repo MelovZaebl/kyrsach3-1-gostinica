@@ -118,6 +118,9 @@
     <Compile Include="Windows\UsersUpdate.xaml.cs">
       <DependentUpon>UsersUpdate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\WorkersUpdate.xaml.cs">
+      <DependentUpon>WorkersUpdate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Workers.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -157,6 +160,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\UsersUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\WorkersUpdate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

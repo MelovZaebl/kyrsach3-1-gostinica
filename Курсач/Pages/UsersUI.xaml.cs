@@ -66,9 +66,16 @@ namespace Курсач.Pages
             var deletedUser = UsersTable.SelectedItem as Users;
             if (deletedUser != null)
             {
-                MainWindow.DB.Users.Remove(deletedUser);
-                MainWindow.DB.SaveChanges();
-                UpdateAgents();
+                if (deletedUser.ID == 1)
+                {
+                    MessageBox.Show("Вы не можете удалить данного пользователя!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    MainWindow.DB.Users.Remove(deletedUser);
+                    MainWindow.DB.SaveChanges();
+                    UpdateAgents();
+                }
             }
             else MessageBox.Show("Выберите запись для удаления!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
         }
