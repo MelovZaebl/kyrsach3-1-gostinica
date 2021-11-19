@@ -24,7 +24,6 @@ namespace Курсач.Pages
         {
             InitializeComponent();
             UsersTable.Items.Clear();
-            UsersTable.ItemsSource = MainWindow.DB.Users.ToList();
             UpdateAgents();
         }
 

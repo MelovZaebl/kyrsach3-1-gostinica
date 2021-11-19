@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Курсач.Windows"
         mc:Ignorable="d"
-        Title="Редактирование записи" Height="180" Width="400">
+        Title="Редактирование записи" Height="280" Width="400">
     <StackPanel Background="{StaticResource MainBG}">
         <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
             <TextBlock Text="Имя пользователя"/>
@@ -14,6 +14,18 @@
         <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
             <TextBlock Text="Пароль"/>
             <TextBox Text="{Binding Password}" Width="200" Margin="80 0 0 0"/>
+        </WrapPanel>
+        <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
+            <TextBlock Text="ФИО работника"/>
+            <TextBox Name="AddFIO" Text="{Binding FIO}" Width="200" Margin="35 0 0 0"/>
+        </WrapPanel>
+        <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
+            <TextBlock Text="Должность"/>
+            <TextBox Name="AddDoljnost" Text="{Binding Doljnost}" Width="200" Margin="60 0 0 0"/>
+        </WrapPanel>
+        <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
+            <TextBlock Text="Телефон"/>
+            <TextBox Name="AddPhone" Text="{Binding Phone}" Width="200" Margin="70 0 0 0"/>
         </WrapPanel>
         <Grid>
             <Button Name="btnSave" Click="Save" Content="Сохранить" Width="100" Height="30" Margin="0 20 0 0" Visibility="Hidden"/>

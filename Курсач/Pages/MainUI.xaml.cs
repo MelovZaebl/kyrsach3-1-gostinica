@@ -25,11 +25,15 @@ namespace Курсач.Pages
         {
             InitializeComponent();
             var workers = MainWindow.DB.Workers.ToList();
+            var users = MainWindow.DB.Users.ToList();
             foreach(var worker in workers)
             {
-                if(worker.Username == AuthUser)
+                foreach(var user in users)
                 {
-                    UserFIO.Text = worker.FIO;
+                    if (worker.ID == user.ID && AuthUser == user.Username)
+                    {
+                        UserFIO.Text = worker.FIO;
+                    }
                 }
             }
         }

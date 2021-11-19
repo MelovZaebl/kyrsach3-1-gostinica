@@ -21,10 +21,19 @@ namespace Курсач.Windows
     {
 
         private Users User;
+        private Workers Worker;
         public UsersUpdate(Users user, int style)
         {
             InitializeComponent();
             this.User = user;
+            foreach(var worker in MainWindow.DB.Workers.ToList())
+            {
+                if (user.ID == worker.ID)
+                {
+                    Worker = worker;
+                }
+                else Worker = new Workers();
+            }
             DataContext = user;
             if(style == 1)
             {
@@ -40,6 +49,10 @@ namespace Курсач.Windows
 
         private void Save(object sender, RoutedEventArgs e)
         {
+            Worker.FIO = AddFIO.Text;
+            Worker.Doljnost = AddDoljnost.Text;
+            Worker.Phone = AddPhone.Text;
+
             string error = String.Empty;
             if (String.IsNullOrWhiteSpace(User.Username))
             {
@@ -49,6 +62,18 @@ namespace Курсач.Windows
             {
                 error += "Введите пароль.\n";
             }
+            if (String.IsNullOrWhiteSpace(Worker.FIO))
+            {
+                error += "Введите ФИО.\n";
+            }
+            if (String.IsNullOrWhiteSpace(Worker.Doljnost))
+            {
+                error += "Введите должность.\n";
+            }
+            if (String.IsNullOrWhiteSpace(Worker.Phone))
+            {
+                error += "Введите телефон.\n";
+            }
             if (error != "")
             {
                 MessageBox.Show(error, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -56,7 +81,7 @@ namespace Курсач.Windows
             }
             else
             {
-
+                //MainWindow.DB.Workers.Add(Worker);
                 MainWindow.DB.Users.Add(User);
                 MainWindow.DB.SaveChanges();
                 this.Close();

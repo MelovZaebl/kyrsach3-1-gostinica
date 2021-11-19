@@ -52,7 +52,7 @@ namespace Курсач
                         AuthUser = user.Username;
                         foreach(var worker in MainWindow.DB.Workers.ToList())
                         {
-                            if (worker.Username == user.Username)
+                            if (worker.ID == user.ID)
                             {
                                 if (worker.Doljnost == "Администратор приложения")
                                 {
@@ -81,7 +81,7 @@ namespace Курсач
                         AuthUser = user.Username;
                         foreach (var worker in MainWindow.DB.Workers.ToList())
                         {
-                            if (worker.Username == user.Username)
+                            if (worker.ID == user.ID)
                             {
                                 if (worker.Doljnost == "Администратор приложения")
                                 {
