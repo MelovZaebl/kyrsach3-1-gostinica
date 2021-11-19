@@ -103,6 +103,9 @@
     <Compile Include="Pages\WorkerMainUI.xaml.cs">
       <DependentUpon>WorkerMainUI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\WorkersUI.xaml.cs">
+      <DependentUpon>WorkersUI.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Rooms.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -146,6 +149,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\WorkerMainUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\WorkersUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

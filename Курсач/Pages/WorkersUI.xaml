@@ -1,0 +1,29 @@
+﻿<Page x:Class="Курсач.Pages.WorkersUI"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Курсач.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="810" d:DesignWidth="1231"
+      Title="WorkersUI">
+
+    <Grid Background="{StaticResource MainBG}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <DataGrid Name="WorkersTable" IsReadOnly="True" AutoGenerateColumns="False" ColumnWidth="*">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ФИО" Binding="{Binding FIO}"/>
+                <DataGridTextColumn Header="Должность" Binding="{Binding Doljnost}"/>
+                <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <WrapPanel Grid.Row="1">
+            <Button Click="Add" Width="200" Height="50" Margin="40" Content="Добавить" FontSize="25"/>
+            <Button Click="Change" Width="200" Height="50" Margin="40" Content="Изменить" FontSize="25"/>
+            <Button Click="Delete" Width="200" Height="50" Margin="40" Content="Удалить" FontSize="25"/>
+        </WrapPanel>
+    </Grid>
+</Page>

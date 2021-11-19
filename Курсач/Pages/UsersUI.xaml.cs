@@ -44,12 +44,33 @@ namespace Курсач.Pages
 
         private void Change(object sender, RoutedEventArgs e)
         {
-
+            int style = 2;
+            Users user = new Users();
+            int i = 0;
+            foreach (var usera in MainWindow.DB.Users.ToList())
+            {
+                if(UsersTable.SelectedIndex == i)
+                {
+                    user = usera;
+                    break;
+                }
+                i++;
+            }
+            Windows.UsersUpdate win = new Windows.UsersUpdate(user, style);
+            win.ShowDialog();
+            UpdateAgents();
         }
 
         private void Delete(object sender, RoutedEventArgs e)
         {
-
+            var deletedUser = UsersTable.SelectedItem as Users;
+            if (deletedUser != null)
+            {
+                MainWindow.DB.Users.Remove(deletedUser);
+                MainWindow.DB.SaveChanges();
+                UpdateAgents();
+            }
+            else MessageBox.Show("Выберите запись для удаления!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }

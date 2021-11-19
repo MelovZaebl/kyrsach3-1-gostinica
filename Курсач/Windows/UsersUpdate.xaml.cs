@@ -30,11 +30,13 @@ namespace Курсач.Windows
             DataContext = user;
             if(style == 1)
             {
+                AddSP.Visibility = Visibility.Visible;
                 btnSave.Visibility = Visibility.Visible;
                 btnEdit.Visibility = Visibility.Hidden;
             }
             else if (style == 2)
             {
+                AddSP.Visibility = Visibility.Hidden;
                 btnSave.Visibility = Visibility.Hidden;
                 btnEdit.Visibility = Visibility.Visible;
             }
@@ -88,7 +90,25 @@ namespace Курсач.Windows
 
         private void Edit(object sender, RoutedEventArgs e)
         {
-
+            string error = String.Empty;
+            if (String.IsNullOrWhiteSpace(User.Username))
+            {
+                error += "Введите имя пользователя.\n";
+            }
+            if (String.IsNullOrWhiteSpace(User.Password))
+            {
+                error += "Введите пароль.\n";
+            }
+            if (error != "")
+            {
+                MessageBox.Show(error, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            else
+            {
+                MainWindow.DB.SaveChanges();
+                this.Close();
+            }
         }
     }
 }

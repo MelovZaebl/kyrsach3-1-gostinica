@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Курсач.Windows"
         mc:Ignorable="d"
-        Title="Редактирование записи" Height="280" Width="400">
+        Title="Редактирование записи" Height="320" Width="400">
     <StackPanel Background="{StaticResource MainBG}">
         <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
             <TextBlock FontSize="15" Text="Имя пользователя"/>
@@ -15,18 +15,20 @@
             <TextBlock FontSize="15" Text="Пароль"/>
             <TextBox Height="20" FontSize="15" Text="{Binding Password}" Width="200" Margin="95 0 0 0"/>
         </WrapPanel>
-        <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
-            <TextBlock FontSize="15" Text="ФИО работника"/>
-            <TextBox Height="20" FontSize="15" Name="AddFIO" Text="{Binding FIO}" Width="200" Margin="38 0 0 0"/>
-        </WrapPanel>
-        <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
-            <TextBlock FontSize="15" Text="Должность"/>
-            <ComboBox Height="20" FontSize="15" Name="AddDoljnost" Text="{Binding Doljnost}" Width="200" Margin="70 0 0 0"/>
-        </WrapPanel>
-        <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
-            <TextBlock FontSize="15" Text="Телефон"/>
-            <TextBox Height="20" FontSize="15" Name="AddPhone" Text="{Binding Phone}" Width="200" Margin="85 0 0 0"/>
-        </WrapPanel>
+        <StackPanel Name="AddSP" Visibility="Hidden">
+            <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
+                <TextBlock FontSize="15" Text="ФИО работника"/>
+                <TextBox Height="20" FontSize="15" Name="AddFIO" Text="{Binding FIO}" Width="200" Margin="38 0 0 0"/>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
+                <TextBlock FontSize="15" Text="Должность"/>
+                <ComboBox Height="20" FontSize="15" Name="AddDoljnost" Text="{Binding Doljnost}" Width="200" Margin="70 0 0 0"/>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
+                <TextBlock FontSize="15" Text="Телефон"/>
+                <TextBox Height="20" FontSize="15" Name="AddPhone" Text="{Binding Phone}" Width="200" Margin="85 0 0 0"/>
+            </WrapPanel>
+        </StackPanel>
         <Grid>
             <Button Name="btnSave" Click="Save" Content="Сохранить" Width="100" Height="30" Margin="0 20 0 0" Visibility="Hidden"/>
             <Button Name="btnEdit" Click="Edit" Content="Изменить" Width="100" Height="30" Margin="0 20 0 0" Visibility="Hidden"/>
