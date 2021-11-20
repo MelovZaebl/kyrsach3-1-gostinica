@@ -94,6 +94,9 @@
     <Compile Include="OrdersReg.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ClassesUI.xaml.cs">
+      <DependentUpon>ClassesUI.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MainUI.xaml.cs">
       <DependentUpon>MainUI.xaml</DependentUpon>
     </Compile>
@@ -114,6 +117,9 @@
     </Compile>
     <Compile Include="Users.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ClassesUpdate.xaml.cs">
+      <DependentUpon>ClassesUpdate.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\UsersUpdate.xaml.cs">
       <DependentUpon>UsersUpdate.xaml</DependentUpon>
@@ -143,6 +149,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\ClassesUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MainUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,6 +166,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\WorkersUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ClassesUpdate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

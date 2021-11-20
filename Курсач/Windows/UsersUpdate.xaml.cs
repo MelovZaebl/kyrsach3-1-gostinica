@@ -51,23 +51,23 @@ namespace Курсач.Windows
             Worker.Phone = AddPhone.Text;
 
             string error = String.Empty;
-            if (String.IsNullOrWhiteSpace(User.Username))
+            if (String.IsNullOrWhiteSpace(User.Username) || User.Username.Count() > 50)
             {
                 error += "Введите имя пользователя.\n";
             }
-            if (String.IsNullOrWhiteSpace(User.Password))
+            if (String.IsNullOrWhiteSpace(User.Password) || User.Password.Count() > 50)
             {
                 error += "Введите пароль.\n";
             }
-            if (String.IsNullOrWhiteSpace(Worker.FIO))
+            if (String.IsNullOrWhiteSpace(Worker.FIO) || Worker.FIO.Count() > 50)
             {
                 error += "Введите ФИО.\n";
             }
-            if (String.IsNullOrWhiteSpace(Worker.Doljnost))
+            if (String.IsNullOrWhiteSpace(Worker.Doljnost) || Worker.Doljnost.Count() > 50)
             {
                 error += "Введите должность.\n";
             }
-            if (String.IsNullOrWhiteSpace(Worker.Phone))
+            if (String.IsNullOrWhiteSpace(Worker.Phone) || Worker.Phone.Count() > 11)
             {
                 error += "Введите телефон.\n";
             }
@@ -95,11 +95,11 @@ namespace Курсач.Windows
         private void Edit(object sender, RoutedEventArgs e)
         {
             string error = String.Empty;
-            if (String.IsNullOrWhiteSpace(User.Username))
+            if (String.IsNullOrWhiteSpace(User.Username) || User.Username.Count() > 50)
             {
                 error += "Введите имя пользователя.\n";
             }
-            if (String.IsNullOrWhiteSpace(User.Password))
+            if (String.IsNullOrWhiteSpace(User.Password) || User.Username.Count() > 50)
             {
                 error += "Введите пароль.\n";
             }
