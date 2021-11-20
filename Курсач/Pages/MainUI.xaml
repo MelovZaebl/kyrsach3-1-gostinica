@@ -25,7 +25,7 @@
             <Button Name="BtnShowOrders" Click="ShowOrders" Height="80" Content="Заказы" FontSize="40"/>
             <Button Name="BtnShowClasses" Click="ShowClasses" Height="80" Content="Классы комнат" FontSize="38"/>
             <Button Name="BtnShowLodgers" Click="ShowLodgers" Height="80" Content="Постояльцы" FontSize="40"/>
-            <Button Name="BtnShowLodgerKids" Click="ShowLodgerKids" Height="80" Content="Дети постояльцев" FontSize="35"/>
+            <Button Name="BtnShowLodgerGuests" Click="ShowLodgerGuests" Height="80" Content="Гости" FontSize="40"/>
         </StackPanel>
         <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="2">
             <TextBlock Width="500" Height="40" Name="UserFIO" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 20 0"/>

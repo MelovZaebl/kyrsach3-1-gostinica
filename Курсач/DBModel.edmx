@@ -25,15 +25,16 @@
           <Property Name="Pol" Type="bit" Nullable="false" />
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
-        <EntityType Name="Lodgers_Kids">
+        <EntityType Name="LodgersGuests">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="FIO" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Parent_ID" Type="int" Nullable="false" />
+          <Property Name="LodgerID" Type="int" Nullable="false" />
           <Property Name="Pol" Type="bit" Nullable="false" />
-          <Property Name="Svidet_Num" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Passport" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Phone" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="OrdersReg">
           <Key>
@@ -83,15 +84,15 @@
           <Property Name="Phone" Type="nvarchar" MaxLength="11" Nullable="false" />
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Lodgers_Kids_Lodgers">
+        <Association Name="FK_LodgersGuests_Lodgers">
           <End Role="Lodgers" Type="Self.Lodgers" Multiplicity="1" />
-          <End Role="Lodgers_Kids" Type="Self.Lodgers_Kids" Multiplicity="*" />
+          <End Role="LodgersGuests" Type="Self.LodgersGuests" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Lodgers">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Lodgers_Kids">
-              <PropertyRef Name="Parent_ID" />
+            <Dependent Role="LodgersGuests">
+              <PropertyRef Name="LodgerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -134,15 +135,15 @@
         <EntityContainer Name="Хранилище DBModelContainer">
           <EntitySet Name="Classes" EntityType="Self.Classes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Lodgers" EntityType="Self.Lodgers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Lodgers_Kids" EntityType="Self.Lodgers_Kids" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LodgersGuests" EntityType="Self.LodgersGuests" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrdersReg" EntityType="Self.OrdersReg" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Workers" EntityType="Self.Workers" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Lodgers_Kids_Lodgers" Association="Self.FK_Lodgers_Kids_Lodgers">
+          <AssociationSet Name="FK_LodgersGuests_Lodgers" Association="Self.FK_LodgersGuests_Lodgers">
             <End Role="Lodgers" EntitySet="Lodgers" />
-            <End Role="Lodgers_Kids" EntitySet="Lodgers_Kids" />
+            <End Role="LodgersGuests" EntitySet="LodgersGuests" />
           </AssociationSet>
           <AssociationSet Name="FK_OrdersReg_Lodgers" Association="Self.FK_OrdersReg_Lodgers">
             <End Role="Lodgers" EntitySet="Lodgers" />
@@ -182,19 +183,20 @@
           <Property Name="Phone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Pol" Type="Boolean" Nullable="false" />
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="Lodgers_Kids" Relationship="Self.FK_Lodgers_Kids_Lodgers" FromRole="Lodgers" ToRole="Lodgers_Kids" />
+          <NavigationProperty Name="LodgersGuests" Relationship="Self.FK_LodgersGuests_Lodgers" FromRole="Lodgers" ToRole="LodgersGuests" />
           <NavigationProperty Name="OrdersReg" Relationship="Self.FK_OrdersReg_Lodgers" FromRole="Lodgers" ToRole="OrdersReg" />
         </EntityType>
-        <EntityType Name="Lodgers_Kids">
+        <EntityType Name="LodgersGuests">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="FIO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Parent_ID" Type="Int32" Nullable="false" />
+          <Property Name="LodgerID" Type="Int32" Nullable="false" />
           <Property Name="Pol" Type="Boolean" Nullable="false" />
-          <Property Name="Svidet_Num" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Passport" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="Lodgers" Relationship="Self.FK_Lodgers_Kids_Lodgers" FromRole="Lodgers_Kids" ToRole="Lodgers" />
+          <Property Name="Phone" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Lodgers" Relationship="Self.FK_LodgersGuests_Lodgers" FromRole="LodgersGuests" ToRole="Lodgers" />
         </EntityType>
         <EntityType Name="OrdersReg">
           <Key>
@@ -260,15 +262,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Lodgers_Kids_Lodgers">
+        <Association Name="FK_LodgersGuests_Lodgers">
           <End Role="Lodgers" Type="Self.Lodgers" Multiplicity="1" />
-          <End Role="Lodgers_Kids" Type="Self.Lodgers_Kids" Multiplicity="*" />
+          <End Role="LodgersGuests" Type="Self.LodgersGuests" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Lodgers">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Lodgers_Kids">
-              <PropertyRef Name="Parent_ID" />
+            <Dependent Role="LodgersGuests">
+              <PropertyRef Name="LodgerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -299,7 +301,7 @@
         <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Classes" EntityType="Self.Classes" />
           <EntitySet Name="Lodgers" EntityType="Self.Lodgers" />
-          <EntitySet Name="Lodgers_Kids" EntityType="Self.Lodgers_Kids" />
+          <EntitySet Name="LodgersGuests" EntityType="Self.LodgersGuests" />
           <EntitySet Name="OrdersReg" EntityType="Self.OrdersReg" />
           <EntitySet Name="Rooms" EntityType="Self.Rooms" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
@@ -309,9 +311,9 @@
             <End Role="Classes" EntitySet="Classes" />
             <End Role="Rooms" EntitySet="Rooms" />
           </AssociationSet>
-          <AssociationSet Name="FK_Lodgers_Kids_Lodgers" Association="Self.FK_Lodgers_Kids_Lodgers">
+          <AssociationSet Name="FK_LodgersGuests_Lodgers" Association="Self.FK_LodgersGuests_Lodgers">
             <End Role="Lodgers" EntitySet="Lodgers" />
-            <End Role="Lodgers_Kids" EntitySet="Lodgers_Kids" />
+            <End Role="LodgersGuests" EntitySet="LodgersGuests" />
           </AssociationSet>
           <AssociationSet Name="FK_OrdersReg_Lodgers" Association="Self.FK_OrdersReg_Lodgers">
             <End Role="Lodgers" EntitySet="Lodgers" />
@@ -350,14 +352,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Lodgers_Kids">
-            <EntityTypeMapping TypeName="DBModel.Lodgers_Kids">
-              <MappingFragment StoreEntitySet="Lodgers_Kids">
+          <EntitySetMapping Name="LodgersGuests">
+            <EntityTypeMapping TypeName="DBModel.LodgersGuests">
+              <MappingFragment StoreEntitySet="LodgersGuests">
                 <ScalarProperty Name="FIO" ColumnName="FIO" />
-                <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
+                <ScalarProperty Name="LodgerID" ColumnName="LodgerID" />
                 <ScalarProperty Name="Pol" ColumnName="Pol" />
-                <ScalarProperty Name="Svidet_Num" ColumnName="Svidet_Num" />
+                <ScalarProperty Name="Passport" ColumnName="Passport" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

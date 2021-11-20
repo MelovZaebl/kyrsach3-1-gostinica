@@ -88,7 +88,7 @@
     <Compile Include="Lodgers.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Lodgers_Kids.cs">
+    <Compile Include="LodgersGuests.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="OrdersReg.cs">
@@ -96,6 +96,9 @@
     </Compile>
     <Compile Include="Pages\ClassesUI.xaml.cs">
       <DependentUpon>ClassesUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LodgersUI.xaml.cs">
+      <DependentUpon>LodgersUI.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MainUI.xaml.cs">
       <DependentUpon>MainUI.xaml</DependentUpon>
@@ -150,6 +153,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\ClassesUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\LodgersUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

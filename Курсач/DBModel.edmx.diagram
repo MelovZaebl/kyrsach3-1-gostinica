@@ -4,17 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5c522d24f7534c248d1933de9662dcf7" Name="Diagram1">
+      <Diagram DiagramId="59d33f5f6e3c449eb36b7eccac730072" Name="Diagram1">
         <EntityTypeShape EntityType="DBModel.Classes" Width="1.5" PointX="5.75" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.Lodgers" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Lodgers_Kids" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.OrdersReg" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.LodgersGuests" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.OrdersReg" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.Rooms" Width="1.5" PointX="8" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.Users" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.Workers" Width="1.5" PointX="5.75" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="DBModel.FK_Rooms_Classes" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_Lodgers_Kids_Lodgers" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_LodgersGuests_Lodgers" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_OrdersReg_Lodgers" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_Users_Workers" ManuallyRouted="false" />
       </Diagram>

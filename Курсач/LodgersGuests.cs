@@ -12,13 +12,14 @@ namespace Курсач
     using System;
     using System.Collections.Generic;
     
-    public partial class Lodgers_Kids
+    public partial class LodgersGuests
     {
         public string FIO { get; set; }
-        public int Parent_ID { get; set; }
+        public int LodgerID { get; set; }
         public bool Pol { get; set; }
-        public string Svidet_Num { get; set; }
+        public string Passport { get; set; }
         public int ID { get; set; }
+        public int Phone { get; set; }
     
         public virtual Lodgers Lodgers { get; set; }
     }
