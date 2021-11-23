@@ -23,6 +23,32 @@ namespace Курсач.Pages
         public LodgersUI()
         {
             InitializeComponent();
+            LodgersTable.Items.Clear();
+            UpdateAgents();
+        }
+
+        private void UpdateAgents()
+        {
+            LodgersTable.ItemsSource = null;
+            LodgersTable.ItemsSource = MainWindow.DB.Lodgers.ToList();
+        }
+
+        private void Change(object sender, RoutedEventArgs e)
+        {
+            Lodgers lodger = new Lodgers();
+            int i = 0;
+            foreach (var lodgera in MainWindow.DB.Lodgers.ToList())
+            {
+                if (LodgersTable.SelectedIndex == i)
+                {
+                    lodger = lodgera;
+                    break;
+                }
+                i++;
+            }
+            Windows.LodgersUpdate win = new Windows.LodgersUpdate(lodger);
+            win.ShowDialog();
+            UpdateAgents();
         }
     }
 }

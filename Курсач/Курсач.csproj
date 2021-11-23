@@ -124,6 +124,9 @@
     <Compile Include="Windows\ClassesUpdate.xaml.cs">
       <DependentUpon>ClassesUpdate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\LodgersUpdate.xaml.cs">
+      <DependentUpon>LodgersUpdate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\UsersUpdate.xaml.cs">
       <DependentUpon>UsersUpdate.xaml</DependentUpon>
     </Compile>
@@ -177,6 +180,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\ClassesUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\LodgersUpdate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -22,7 +22,7 @@ namespace Курсач
         }
     
         public string FIO { get; set; }
-        public int Passport { get; set; }
+        public string Passport { get; set; }
         public int Room { get; set; }
         public string Phone { get; set; }
         public bool Pol { get; set; }
@@ -35,8 +35,12 @@ namespace Курсач
                 {
                     return "Мужчина";
                 }
-                else return "Женщина";
+                else
+                {
+                    return "Женщина";
+                }
             }
+            
         }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

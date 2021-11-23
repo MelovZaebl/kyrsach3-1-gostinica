@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Курсач.Windows"
         mc:Ignorable="d"
-        Title="Редактирование записи" Height="320" Width="400">
+        Title="Редактирование записи" Height="320" Width="400" WindowStartupLocation="CenterScreen">
     <StackPanel Background="{StaticResource MainBG}">
         <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
             <TextBlock FontSize="15" Text="Имя пользователя"/>

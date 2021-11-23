@@ -14,7 +14,7 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <ScrollViewer>
-            <DataGrid Name="ClassesTable" IsReadOnly="True" AutoGenerateColumns="False" ColumnWidth="*">
+            <DataGrid Name="LodgersTable" IsReadOnly="True" AutoGenerateColumns="False" ColumnWidth="*">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ФИО" Binding="{Binding FIO}"/>
                     <DataGridTextColumn Header="Паспорт" Binding="{Binding Passport}"/>
