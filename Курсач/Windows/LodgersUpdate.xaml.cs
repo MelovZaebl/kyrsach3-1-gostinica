@@ -53,10 +53,6 @@ namespace Курсач.Windows
             {
                 error += "Введите телефон.\n";
             }
-            if (String.IsNullOrWhiteSpace(Lodger.PolText))
-            {
-                error += "Введите пол.\n";
-            }
             if (error != "")
             {
                 MessageBox.Show(error, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -64,11 +60,15 @@ namespace Курсач.Windows
             }
             else
             {
-                if(CBPol.SelectedIndex == 0)
+                if (CBPol.SelectedIndex == 0)
                 {
                     Lodger.Pol = true;
                 }
-                else Lodger.Pol = false;
+                else if (CBPol.SelectedIndex == 1)
+                {
+                    Lodger.Pol = false;
+                }
+                else Lodger.Pol = true;
                 MainWindow.DB.SaveChanges();
                 this.Close();
             }

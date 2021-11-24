@@ -27,11 +27,12 @@ namespace Курсач
         public string Phone { get; set; }
         public bool Pol { get; set; }
         public int ID { get; set; }
+
         public string PolText
         {
             get
             {
-                if (Pol == true)
+                if(Pol == true)
                 {
                     return "Мужчина";
                 }
@@ -40,7 +41,6 @@ namespace Курсач
                     return "Женщина";
                 }
             }
-            
         }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

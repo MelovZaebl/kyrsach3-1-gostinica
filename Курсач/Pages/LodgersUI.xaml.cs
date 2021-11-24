@@ -35,20 +35,24 @@ namespace Курсач.Pages
 
         private void Change(object sender, RoutedEventArgs e)
         {
-            Lodgers lodger = new Lodgers();
-            int i = 0;
-            foreach (var lodgera in MainWindow.DB.Lodgers.ToList())
+            if (LodgersTable.SelectedItem != null) MessageBox.Show("Выберите постояльца!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+            else
             {
-                if (LodgersTable.SelectedIndex == i)
+                Lodgers lodger = new Lodgers();
+                int i = 0;
+                foreach (var lodgera in MainWindow.DB.Lodgers.ToList())
                 {
-                    lodger = lodgera;
-                    break;
+                    if (LodgersTable.SelectedIndex == i)
+                    {
+                        lodger = lodgera;
+                        break;
+                    }
+                    i++;
                 }
-                i++;
+                Windows.LodgersUpdate win = new Windows.LodgersUpdate(lodger);
+                win.ShowDialog();
+                UpdateAgents();
             }
-            Windows.LodgersUpdate win = new Windows.LodgersUpdate(lodger);
-            win.ShowDialog();
-            UpdateAgents();
         }
     }
 }

@@ -30,7 +30,6 @@ namespace Курсач
         public virtual DbSet<LodgersGuests> LodgersGuests { get; set; }
         public virtual DbSet<OrdersReg> OrdersReg { get; set; }
         public virtual DbSet<Rooms> Rooms { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Workers> Workers { get; set; }
     }

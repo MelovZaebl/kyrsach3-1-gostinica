@@ -115,9 +115,6 @@
     <Compile Include="Rooms.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Users.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
