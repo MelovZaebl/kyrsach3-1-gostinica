@@ -35,7 +35,7 @@ namespace Курсач.Pages
 
         private void Change(object sender, RoutedEventArgs e)
         {
-            if (LodgersTable.SelectedItem != null) MessageBox.Show("Выберите постояльца!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+            if (LodgersTable.SelectedItem == null) MessageBox.Show("Выберите постояльца!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
             else
             {
                 Lodgers lodger = new Lodgers();

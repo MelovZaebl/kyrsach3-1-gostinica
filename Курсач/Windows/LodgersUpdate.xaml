@@ -26,7 +26,7 @@
             </WrapPanel>
             <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
                 <TextBlock FontSize="15" Text="Пол"/>
-                <ComboBox Name="CBPol" Height="20" FontSize="15" Width="200" Margin="85 0 0 0"/>
+                <ComboBox Name="CBPol" Style="{StaticResource ComboBoxFlatStyle}" Height="20" FontSize="13" Width="200" Margin="85 0 0 0"/>
             </WrapPanel>
             <Grid>
                 <Button Click="Edit" Content="Изменить" Width="100" Height="30" Margin="0 20 0 0"/>

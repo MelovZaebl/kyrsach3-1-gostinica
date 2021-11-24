@@ -20,11 +20,21 @@ namespace Курсач.Pages
     /// </summary>
     public partial class ClassesUI : Page
     {
-        public ClassesUI()
+        public ClassesUI(int style)
         {
             InitializeComponent();
             ClassesTable.Items.Clear();
             UpdateAgents();
+            if(style == 1)
+            {
+                btnAdd.Visibility = Visibility.Visible;
+                btnDelete.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btnAdd.Visibility = Visibility.Hidden;
+                btnDelete.Visibility = Visibility.Hidden;
+            }
         }
 
         private void UpdateAgents()

@@ -1,0 +1,43 @@
+﻿<Page x:Class="Курсач.Pages.RoomUI"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Курсач.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="810" d:DesignWidth="1231"
+      Title="RoomUI">
+
+    <Grid Background="{StaticResource MainBG}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <ListView Name="RoomView" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="{StaticResource MainBG}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Background="{StaticResource MainBG2}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="7*"/>
+                        </Grid.ColumnDefinitions>
+                        <Border VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="{StaticResource MainFocus}" BorderThickness="1">
+                            <Image Source="{Binding Photo}" Height="360" Stretch="Fill" Name="RoomImg"/>
+                        </Border>
+                        <StackPanel Margin="20, 100, 20, 100" Grid.Column="1">
+                            <WrapPanel>
+                                <TextBlock Margin="10, 0" Text="Номер комнаты: "/>
+                                <TextBlock Text="{Binding Room}"/>
+                            </WrapPanel>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <WrapPanel Grid.Row="1">
+            <Button Click="Add" Width="200" Height="50" Margin="40" Content="Добавить" FontSize="25" Cursor="Hand"/>
+            <Button Click="Change" Width="200" Height="50" Margin="40" Content="Изменить" FontSize="25"/>
+            <Button Click="Delete" Width="200" Height="50" Margin="40" Content="Удалить" FontSize="25"/>
+        </WrapPanel>
+    </Grid>
+</Page>

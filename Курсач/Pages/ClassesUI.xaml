@@ -23,9 +23,9 @@
             </DataGrid>
         </ScrollViewer>
         <WrapPanel Grid.Row="1">
-            <Button Click="Add" Width="200" Height="50" Margin="40" Content="Добавить" FontSize="25"/>
             <Button Click="Change" Width="200" Height="50" Margin="40" Content="Изменить" FontSize="25"/>
-            <Button Click="Delete" Width="200" Height="50" Margin="40" Content="Удалить" FontSize="25"/>
+            <Button Name="btnAdd" Click="Add" Width="200" Height="50" Margin="40" Content="Добавить" FontSize="25" Visibility="Hidden"/>
+            <Button Name="btnDelete" Click="Delete" Width="200" Height="50" Margin="40" Content="Удалить" FontSize="25" Visibility="Hidden"/>
         </WrapPanel>
     </Grid>
 </Page>

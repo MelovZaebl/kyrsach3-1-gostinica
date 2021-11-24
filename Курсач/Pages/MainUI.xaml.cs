@@ -78,6 +78,8 @@ namespace Курсач.Pages
             BtnShowClasses.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#414141");
             BtnShowLodgers.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#414141");
             BtnShowLodgerGuests.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#414141");
+
+            ContentFrame.Navigate(new RoomUI());
         }
 
         private void ShowOrders(object sender, RoutedEventArgs e)
@@ -114,7 +116,8 @@ namespace Курсач.Pages
             BtnShowLodgers.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#414141");
             BtnShowLodgerGuests.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#414141");
 
-            ContentFrame.Navigate(new ClassesUI());
+            int style = 1;
+            ContentFrame.Navigate(new ClassesUI(style));
         }
 
         private void ShowLodgerGuests(object sender, RoutedEventArgs e)

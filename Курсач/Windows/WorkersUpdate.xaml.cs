@@ -48,7 +48,7 @@ namespace Курсач.Windows
             {
                 error += "Введите должность.\n";
             }
-            if (String.IsNullOrWhiteSpace(Worker.Phone) || Worker.Phone.Count() > 11)
+            if (String.IsNullOrWhiteSpace(Worker.Phone) || Worker.Phone.Count() != 11)
             {
                 error += "Введите телефон.\n";
             }
