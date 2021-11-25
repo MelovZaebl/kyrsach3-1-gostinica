@@ -15,5 +15,9 @@
             <TextBlock Text="Класс" Margin="0,0,120,0"/>
             <ComboBox Name="CBClasses" Style="{StaticResource ComboBoxFlatStyle}" SelectedValue="{Binding Class}" SelectedValuePath="ClassID" DisplayMemberPath="ClassName" Width="200"/>
         </WrapPanel>
+        <WrapPanel HorizontalAlignment="Center" Margin="0, 10">
+            <TextBlock Text="Фото" Margin="0,0,120,0"/>
+            <ListView Name="Img" Drop="ImgDrop" Background="{StaticResource MainBG2}" Width="200" Height="200"/>
+        </WrapPanel>
     </StackPanel>
 </Window>
