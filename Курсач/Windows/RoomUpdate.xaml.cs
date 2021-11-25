@@ -27,11 +27,23 @@ namespace Курсач.Windows
             DataContext = room;
             CBClasses.ItemsSource = MainWindow.DB.Classes.ToList();
 
-            ImageBrush RoomImg = new ImageBrush();
-            Image image = new Image();
-            image.Source = new BitmapImage(new Uri(Room.Photo));
-            RoomImg.ImageSource = image.Source;
-            Img.Background = RoomImg;
+            if(File.Exists(Room.Photo))
+            {
+                ImageBrush RoomImg = new ImageBrush();
+                Image image = new Image();
+                image.Source = new BitmapImage(new Uri(Room.Photo));
+                RoomImg.ImageSource = image.Source;
+                Img.Background = RoomImg;
+            }
+            else
+            {
+                Room.Photo = Path.GetFullPath(@"Pics\RoomPlaceholder.png");
+                ImageBrush RoomImg = new ImageBrush();
+                Image image = new Image();
+                image.Source = new BitmapImage(new Uri(Room.Photo));
+                RoomImg.ImageSource = image.Source;
+                Img.Background = RoomImg;
+            }
 
             CBStatus.Items.Add("Занята");
             CBStatus.Items.Add("Свободна");
