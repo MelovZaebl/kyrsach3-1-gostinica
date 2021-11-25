@@ -24,17 +24,15 @@ namespace Курсач.Pages
         {
             InitializeComponent();
             RoomView.Items.Clear();
-            foreach(var rooma in MainWindow.DB.Rooms.ToList())
+            UpdateRooms();
+        }
+
+        private void UpdateRooms()
+        {
+            RoomView.Items.Clear();
+            foreach (var rooma in MainWindow.DB.Rooms.ToList())
             {
                 RoomView.Items.Add(rooma);
-            }
-            foreach(var room in RoomView.Items)
-            {
-                Rooms roomSQL = room as Rooms;
-                if(roomSQL.Photo == null)
-                {
-                    
-                }
             }
         }
 
@@ -45,9 +43,14 @@ namespace Курсач.Pages
 
         private void Change(object sender, RoutedEventArgs e)
         {
-            Rooms room = RoomView.SelectedItem as Rooms;
-            Windows.RoomUpdate win = new Windows.RoomUpdate(room);
-            win.ShowDialog();
+            if (RoomView.SelectedItem == null) MessageBox.Show("Выберите запись для редактирования!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+            else
+            {
+                Rooms room = RoomView.SelectedItem as Rooms;
+                Windows.RoomUpdate win = new Windows.RoomUpdate(room);
+                win.ShowDialog();
+                UpdateRooms();
+            }
         }
 
         private void Delete(object sender, RoutedEventArgs e)

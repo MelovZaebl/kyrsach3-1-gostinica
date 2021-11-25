@@ -27,15 +27,6 @@ namespace Курсач
         public string Phone { get; set; }
         public bool Pol { get; set; }
         public int ID { get; set; }
-
-        public string PolText
-        {
-            get
-            {
-                if (this.Pol == true) return "Мужчина";
-                else return "Женщина";
-            }
-        }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LodgersGuests> LodgersGuests { get; set; }

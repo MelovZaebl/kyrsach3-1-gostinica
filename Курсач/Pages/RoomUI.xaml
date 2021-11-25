@@ -13,7 +13,7 @@
             <RowDefinition Height="5*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <ListView Name="RoomView" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="{StaticResource MainBG}">
+        <ListView FontSize="30" Name="RoomView" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="{StaticResource MainBG}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid Background="{StaticResource MainBG2}">
@@ -22,12 +22,28 @@
                             <ColumnDefinition Width="7*"/>
                         </Grid.ColumnDefinitions>
                         <Border VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="{StaticResource MainFocus}" BorderThickness="1">
-                            <Image Source="{Binding Photo}" Height="360" Stretch="Fill" Name="RoomImg"/>
+                            <Image Source="{Binding Photo}" Width="600" Height="600" Stretch="Fill" Name="RoomImg"/>
                         </Border>
-                        <StackPanel Margin="20, 100, 20, 100" Grid.Column="1">
-                            <WrapPanel>
+                        <StackPanel Margin="20, 100, 20, 100" Grid.Column="1" Width="1410">
+                            <WrapPanel Margin="0, 5">
                                 <TextBlock Margin="10, 0" Text="Номер комнаты: "/>
                                 <TextBlock Text="{Binding Room}"/>
+                            </WrapPanel>
+                            <WrapPanel Margin="0, 5">
+                                <TextBlock Margin="10, 0" Text="Класс: "/>
+                                <TextBlock Text="{Binding Classes.ClassName}"/>
+                            </WrapPanel>
+                            <WrapPanel Margin="0, 5">
+                                <TextBlock Margin="10, 0" Text="Кол-во мест: "/>
+                                <TextBlock Text="{Binding Classes.SpotsCount}"/>
+                            </WrapPanel>
+                            <WrapPanel Margin="0, 5">
+                                <TextBlock Margin="10, 0" Text="Статус: "/>
+                                <TextBlock Text="{Binding StatusText}"/>
+                            </WrapPanel>
+                            <WrapPanel Margin="0, 100">
+                                <TextBlock Margin="10, 0" FontSize="40" Text="Цена в сутки:"/>
+                                <TextBlock FontSize="40" Text="{Binding Classes.DailyPrice, StringFormat={}{0:0} руб.}"/>
                             </WrapPanel>
                         </StackPanel>
                     </Grid>

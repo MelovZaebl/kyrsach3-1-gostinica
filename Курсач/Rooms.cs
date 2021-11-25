@@ -19,6 +19,15 @@ namespace Курсач
         public string Photo { get; set; }
         public bool Status { get; set; }
         public int ID { get; set; }
+
+        public string StatusText
+        {
+            get
+            {
+                if (Status == true) return "Занята";
+                else return "Свободна";
+            }
+        }
     
         public virtual Classes Classes { get; set; }
     }
