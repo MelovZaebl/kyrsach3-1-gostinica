@@ -13,7 +13,7 @@
         </WrapPanel>
         <WrapPanel HorizontalAlignment="Center" Margin="0, 10">
             <TextBlock Text="Класс" Margin="0,0,120,0"/>
-            <ComboBox Name="CBClasses" Style="{StaticResource ComboBoxFlatStyle}" ItemsSource="{Binding Path=Classes.ClassID}" SelectedValuePath="Class" DisplayMemberPath="Classes.ClassName" Width="200"/>
+            <ComboBox Name="CBClasses" Style="{StaticResource ComboBoxFlatStyle}" SelectedValue="{Binding Class}" SelectedValuePath="ClassID" DisplayMemberPath="ClassName" Width="200"/>
         </WrapPanel>
     </StackPanel>
 </Window>

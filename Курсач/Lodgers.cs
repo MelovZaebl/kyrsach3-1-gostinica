@@ -32,14 +32,8 @@ namespace Курсач
         {
             get
             {
-                if(Pol == true)
-                {
-                    return "Мужчина";
-                }
-                else
-                {
-                    return "Женщина";
-                }
+                if (this.Pol == true) return "Мужчина";
+                else return "Женщина";
             }
         }
     

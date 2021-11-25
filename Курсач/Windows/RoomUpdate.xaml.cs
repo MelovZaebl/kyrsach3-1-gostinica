@@ -25,7 +25,7 @@ namespace Курсач.Windows
             InitializeComponent();
             Room = room;
             DataContext = room;
-
+            CBClasses.ItemsSource = MainWindow.DB.Classes.ToList();
         }
     }
 }
