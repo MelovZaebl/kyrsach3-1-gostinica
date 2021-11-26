@@ -23,6 +23,9 @@
             <TextBlock Text="Фото" Margin="0,0,126,0"/>
             <ListView Foreground="Transparent" Name="Img" Drop="ImgDrop" AllowDrop="True" Background="{StaticResource MainBG2}" Width="200" Height="200"/>
         </WrapPanel>
-        <Button Click="EditSave" Width="100" Height="30" Content="Изменить" Margin="10"/>
+        <Grid>
+            <Button Name="btnAdd" Click="AddSave" Width="100" Height="30" Content="Сохранить" Margin="10" Visibility="Hidden"/>
+            <Button Name="btnEdit" Click="EditSave" Width="100" Height="30" Content="Изменить" Margin="10" Visibility="Hidden"/>
+        </Grid>
     </StackPanel>
 </Window>

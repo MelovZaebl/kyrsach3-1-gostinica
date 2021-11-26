@@ -38,7 +38,10 @@ namespace Курсач.Pages
 
         private void Add(object sender, RoutedEventArgs e)
         {
-
+            Rooms room = new Rooms();
+            Windows.RoomUpdate win = new Windows.RoomUpdate(room, 0);
+            win.ShowDialog();
+            UpdateRooms();
         }
 
         private void Change(object sender, RoutedEventArgs e)
@@ -47,7 +50,7 @@ namespace Курсач.Pages
             else
             {
                 Rooms room = RoomView.SelectedItem as Rooms;
-                Windows.RoomUpdate win = new Windows.RoomUpdate(room);
+                Windows.RoomUpdate win = new Windows.RoomUpdate(room, 1);
                 win.ShowDialog();
                 UpdateRooms();
             }

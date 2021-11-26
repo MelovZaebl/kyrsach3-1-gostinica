@@ -12,23 +12,12 @@ namespace Курсач
     using System;
     using System.Collections.Generic;
     
-    public partial class Rooms
+    public partial class sysdiagrams
     {
-        public int Room { get; set; }
-        public int Class { get; set; }
-        public string Photo { get; set; }
-        public bool Status { get; set; }
-        public int ID { get; set; }
-
-        public string StatusText
-        {
-            get
-            {
-                if (Status == false) return "Свободна";
-                else return "Занята";
-            }
-        }
-    
-        public virtual Classes Classes { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

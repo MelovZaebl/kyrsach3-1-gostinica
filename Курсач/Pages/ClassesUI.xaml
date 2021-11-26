@@ -18,7 +18,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Название класса" Binding="{Binding ClassName}"/>
                     <DataGridTextColumn Header="Кол-во мест" Binding="{Binding SpotsCount}"/>
-                    <DataGridTextColumn Header="Стоимость за день" Binding="{Binding DailyPrice}"/>
+                    <DataGridTextColumn Header="Стоимость за день" Binding="{Binding DailyPrice, StringFormat={}{0:0} руб.}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </ScrollViewer>

@@ -20,7 +20,7 @@ namespace Курсач.Windows
     public partial class RoomUpdate : Window
     {
         private Rooms Room;
-        public RoomUpdate(Rooms room)
+        public RoomUpdate(Rooms room, int style)
         {
             InitializeComponent();
             Room = room;
@@ -52,9 +52,20 @@ namespace Курсач.Windows
                 CBStatus.SelectedIndex = 0;
             }
             else CBStatus.SelectedIndex = 1;
+
+            if(style == 0)
+            {
+                btnAdd.Visibility = Visibility.Visible;
+                btnEdit.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                btnAdd.Visibility = Visibility.Hidden;
+                btnEdit.Visibility = Visibility.Visible;
+            }
         }
 
-        public readonly string DirPath = AppDomain.CurrentDomain.BaseDirectory;
+        public readonly string DirPath = AppDomain.CurrentDomain.BaseDirectory + @"\Pics";
 
         private void ImgDrop(object sender, DragEventArgs e)
         {
@@ -120,6 +131,36 @@ namespace Курсач.Windows
             {
                 if (CBStatus.SelectedIndex == 0) Room.Status = true;
                 else Room.Status = false;
+                MainWindow.DB.SaveChanges();
+                this.Close();
+            }
+        }
+
+        private void AddSave(object sender, RoutedEventArgs e)
+        {
+            string error = String.Empty;
+            if (String.IsNullOrWhiteSpace(Room.Room.ToString()))
+            {
+                error += "Введите номер комнаты.\n";
+            }
+            if (String.IsNullOrWhiteSpace(Room.Class.ToString()))
+            {
+                error += "Выберите класс комнаты.\n";
+            }
+            if (String.IsNullOrWhiteSpace(Room.Photo))
+            {
+                Room.Photo = "/Pics/RoomPlaceholder.png";
+            }
+            if (error != "")
+            {
+                MessageBox.Show(error, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            else
+            {
+                if (CBStatus.SelectedIndex == 0) Room.Status = true;
+                else Room.Status = false;
+                MainWindow.DB.Rooms.Add(Room);
                 MainWindow.DB.SaveChanges();
                 this.Close();
             }

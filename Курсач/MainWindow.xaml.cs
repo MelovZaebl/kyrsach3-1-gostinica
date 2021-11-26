@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace Курсач
 {
@@ -26,6 +27,10 @@ namespace Курсач
             InitializeComponent();
             DB = new DBEntities();
             MainFrame.Navigate(new Authorization());
+            if (Directory.Exists("Pics") == false)
+            {
+                Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + @"\Pics");
+            }
         }
     }
 }
