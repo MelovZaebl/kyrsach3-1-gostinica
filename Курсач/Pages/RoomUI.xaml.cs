@@ -58,7 +58,8 @@ namespace Курсач.Pages
 
         private void Delete(object sender, RoutedEventArgs e)
         {
-
+            Rooms room = RoomView.SelectedItem as Rooms;
+            MainWindow.DB.Rooms.Remove(room);
         }
     }
 }
