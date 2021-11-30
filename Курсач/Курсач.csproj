@@ -97,6 +97,9 @@
     <Compile Include="Pages\ClassesUI.xaml.cs">
       <DependentUpon>ClassesUI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\GuestsUI.xaml.cs">
+      <DependentUpon>GuestsUI.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\LodgersUI.xaml.cs">
       <DependentUpon>LodgersUI.xaml</DependentUpon>
     </Compile>
@@ -126,6 +129,9 @@
     </Compile>
     <Compile Include="Windows\ClassesUpdate.xaml.cs">
       <DependentUpon>ClassesUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\GuestUpdate.xaml.cs">
+      <DependentUpon>GuestUpdate.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\LodgersUpdate.xaml.cs">
       <DependentUpon>LodgersUpdate.xaml</DependentUpon>
@@ -165,6 +171,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\GuestsUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\LodgersUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -190,6 +200,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\ClassesUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\GuestUpdate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

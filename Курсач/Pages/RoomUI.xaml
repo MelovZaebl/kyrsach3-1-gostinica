@@ -16,15 +16,15 @@
         <ListView FontSize="30" Name="RoomView" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="{StaticResource MainBG}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Background="{StaticResource MainBG2}">
+                    <Grid Background="{StaticResource MainBG2}" Width="1500">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="3*"/>
                             <ColumnDefinition Width="7*"/>
                         </Grid.ColumnDefinitions>
                         <Border VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="{StaticResource MainFocus}" BorderThickness="1">
-                            <Image Source="{Binding Photo}" Width="450" Height="450" Stretch="Fill" Name="RoomImg"/>
+                            <Image Source="{Binding Photo}" Width="370" Height="370" Stretch="Fill" Name="RoomImg"/>
                         </Border>
-                        <StackPanel Margin="20, 0" Grid.Column="1" Width="1410">
+                        <StackPanel Margin="20, 0" Grid.Column="1" Width="1000">
                             <WrapPanel Margin="0, 40, 0, 5">
                                 <TextBlock Margin="10, 0" Text="Номер комнаты: "/>
                                 <TextBlock Text="{Binding Room}"/>
@@ -41,7 +41,7 @@
                                 <TextBlock Margin="10, 0" Text="Статус: "/>
                                 <TextBlock Text="{Binding StatusText}"/>
                             </WrapPanel>
-                            <WrapPanel Margin="60, 170, 0, 0">
+                            <WrapPanel Margin="60, 100, 0, 0">
                                 <TextBlock Margin="10, 0" FontSize="40" Text="Цена в сутки:"/>
                                 <TextBlock FontSize="40" Text="{Binding Classes.DailyPrice, StringFormat={}{0:0} руб.}"/>
                             </WrapPanel>

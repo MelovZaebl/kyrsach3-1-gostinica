@@ -80,10 +80,23 @@ namespace Курсач.Windows
             {
                 if(Worker.ID == 0 && User.ID == 0)
                 {
-                    MainWindow.DB.Workers.Add(Worker);
-                    MainWindow.DB.Users.Add(User);
-                    MainWindow.DB.SaveChanges();
-                    this.Close();
+                    int i = 0;
+                    foreach(var useri in MainWindow.DB.Users.ToList())
+                    {
+                        if (useri.Username == User.Username)
+                        {
+                            MessageBox.Show("Данный логин уже используется", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                            i++;
+                            break;
+                        }
+                    }
+                    if (i == 0)
+                    {
+                        MainWindow.DB.Workers.Add(Worker);
+                        MainWindow.DB.Users.Add(User);
+                        MainWindow.DB.SaveChanges();
+                        this.Close();
+                    }
                 }
                 else
                 {
@@ -110,8 +123,21 @@ namespace Курсач.Windows
             }
             else
             {
-                MainWindow.DB.SaveChanges();
-                this.Close();
+                int i = 0;
+                foreach (var useri in MainWindow.DB.Users.ToList())
+                {
+                    if (useri.Username == User.Username)
+                    {
+                        MessageBox.Show("Данный логин уже используется", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        i++;
+                        break;
+                    }
+                }
+                if (i == 0)
+                {
+                    MainWindow.DB.SaveChanges();
+                    this.Close();
+                }
             }
         }
     }

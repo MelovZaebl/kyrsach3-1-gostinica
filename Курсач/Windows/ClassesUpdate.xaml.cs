@@ -61,9 +61,22 @@ namespace Курсач.Windows
             {
                 if (classs.ClassID == 0)
                 {
-                    MainWindow.DB.Classes.Add(classs);
-                    MainWindow.DB.SaveChanges();
-                    this.Close();
+                    int i = 0;
+                    foreach(var classa in MainWindow.DB.Classes.ToList())
+                    {
+                        if (classa.ClassName == classs.ClassName)
+                        {
+                            MessageBox.Show("Класс с таким названием уже существует", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                            i++;
+                            break;
+                        }
+                    }
+                    if(i == 0)
+                    {
+                        MainWindow.DB.Classes.Add(classs);
+                        MainWindow.DB.SaveChanges();
+                        this.Close();
+                    }
                 }
                 else
                 {
@@ -94,8 +107,22 @@ namespace Курсач.Windows
             }
             else
             {
-                MainWindow.DB.SaveChanges();
-                this.Close();
+                int i = 0;
+                foreach (var classa in MainWindow.DB.Classes.ToList())
+                {
+                    if (classa.ClassName == classs.ClassName)
+                    {
+                        MessageBox.Show("Класс с таким названием уже существует", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        i++;
+                        break;
+                    }
+                }
+                if (i == 0)
+                {
+                    MainWindow.DB.Classes.Add(classs);
+                    MainWindow.DB.SaveChanges();
+                    this.Close();
+                }
             }
         }
     }
