@@ -20,7 +20,9 @@ namespace Курсач
         public System.DateTime StartDate { get; set; }
         public System.DateTime StopDate { get; set; }
         public string WorkerFIO { get; set; }
+        public int Room { get; set; }
     
         public virtual Lodgers Lodgers { get; set; }
+        public virtual Rooms Rooms { get; set; }
     }
 }

@@ -4,18 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="557ffe9746f34cb794a280ae94333e20" Name="Diagram1">
-        <EntityTypeShape EntityType="DBModel.Classes" Width="1.5" PointX="5.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Lodgers" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.LodgersGuests" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.OrdersReg" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Rooms" Width="1.5" PointX="8" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Users" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Workers" Width="1.5" PointX="5.75" PointY="0.875" IsExpanded="true" />
+      <Diagram DiagramId="06617416aba64f6ea43f1955332be268" Name="Diagram1">
+        <EntityTypeShape EntityType="DBModel.Classes" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Lodgers" Width="1.5" PointX="2.375" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.LodgersGuests" Width="1.5" PointX="4.125" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.OrdersReg" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Rooms" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Users" Width="1.5" PointX="8" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Workers" Width="1.5" PointX="5.75" PointY="4.875" IsExpanded="true" />
         <AssociationConnector Association="DBModel.FK_Rooms_Classes" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_LodgersGuests_Lodgers" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_OrdersReg_Lodgers" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_OrdersReg_Rooms" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_Users_Workers" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

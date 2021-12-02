@@ -29,11 +29,13 @@ namespace Курсач.Pages
             {
                 btnAdd.Visibility = Visibility.Visible;
                 btnDelete.Visibility = Visibility.Visible;
+                btnEdit.Visibility = Visibility.Visible;
             }
             else
             {
                 btnAdd.Visibility = Visibility.Hidden;
                 btnDelete.Visibility = Visibility.Hidden;
+                btnEdit.Visibility = Visibility.Hidden;
             }
         }
 

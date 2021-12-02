@@ -106,6 +106,9 @@
     <Compile Include="Pages\MainUI.xaml.cs">
       <DependentUpon>MainUI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\OrderUI.xaml.cs">
+      <DependentUpon>OrderUI.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\RoomUI.xaml.cs">
       <DependentUpon>RoomUI.xaml</DependentUpon>
     </Compile>
@@ -135,6 +138,9 @@
     </Compile>
     <Compile Include="Windows\LodgersUpdate.xaml.cs">
       <DependentUpon>LodgersUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\OrderAdd.xaml.cs">
+      <DependentUpon>OrderAdd.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\RoomUpdate.xaml.cs">
       <DependentUpon>RoomUpdate.xaml</DependentUpon>
@@ -183,6 +189,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\OrderUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\RoomUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -208,6 +218,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\LodgersUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\OrderAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
