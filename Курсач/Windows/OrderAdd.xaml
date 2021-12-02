@@ -25,7 +25,7 @@
         </WrapPanel>
         <WrapPanel Margin="10" HorizontalAlignment="Center">
             <TextBlock Text="Комната" Margin="0, 0, 98, 0"/>
-            <ComboBox Name="CBRoom" Style="{StaticResource ComboBoxFlatStyle}" Width="200"/>
+            <ComboBox Name="CBRoom" SelectionChanged="RoomChange" Style="{StaticResource ComboBoxFlatStyle}" Width="200"/>
         </WrapPanel>
         <WrapPanel Margin="10" HorizontalAlignment="Center">
             <TextBlock Text="Дата заселения" Margin="0, 0, 80, 0"/>
@@ -35,5 +35,10 @@
             <TextBlock Text="Дата выселения" Margin="0, 0, 80, 0"/>
             <Calendar Name="CStopD"/>
         </WrapPanel>
+        <WrapPanel Margin="10" HorizontalAlignment="Center">
+            <TextBlock Text="Кол-во гостей" Margin="0, 0, 74, 0"/>
+            <ComboBox Name="CBGuest" Style="{StaticResource ComboBoxFlatStyle}" Width="200"/>
+        </WrapPanel>
+        <Button Click="Save" Width="100" Height="25" Content="Сохранить" Margin="10"/>
     </StackPanel>
 </Window>
