@@ -27,6 +27,13 @@ namespace Курсач.Windows
             CStartD.SelectedDate = DateTime.Now;
             DataContext = Order;
             CBRoom.ItemsSource = MainWindow.DB.Rooms.ToList();
+            CBPol.Items.Add("Мужчина");
+            CBPol.Items.Add("Женщина");
+            if (Lodger.Pol == true)
+            {
+                CBPol.SelectedIndex = 0;
+            }
+            else CBPol.SelectedIndex = 1;
         }
 
         private void RoomChange(object sender, SelectionChangedEventArgs e)
@@ -59,6 +66,18 @@ namespace Курсач.Windows
             {
                 MessageBox.Show(error, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
+            }
+            else
+            {
+                if (CBPol.SelectedIndex == 0)
+                {
+                    Lodger.Pol = true;
+                }
+                else if (CBPol.SelectedIndex == 1)
+                {
+                    Lodger.Pol = false;
+                }
+                else Lodger.Pol = true;
             }
         }
     }
