@@ -20,9 +20,33 @@ namespace Курсач.Pages
     /// </summary>
     public partial class OrderUI : Page
     {
-        public OrderUI()
+        public string worker;
+        public OrderUI(string AuthUser)
         {
             InitializeComponent();
+            worker = AuthUser;
+            OrdersTable.Items.Clear();
+            UpdateOrders();
+        }
+        private void UpdateOrders()
+        {
+            OrdersTable.Items.Clear();
+            foreach (var ordera in MainWindow.DB.OrdersReg.ToList())
+            {
+                OrdersTable.Items.Add(ordera);
+            }
+        }
+
+        private void Add(object sender, RoutedEventArgs e)
+        {
+            Windows.OrderAdd win = new Windows.OrderAdd(worker);
+            win.ShowDialog();
+            UpdateOrders();
+        }
+
+        private void Delete(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

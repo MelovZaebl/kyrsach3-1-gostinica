@@ -25,6 +25,15 @@ namespace Курсач
         public string Photo { get; set; }
         public bool Status { get; set; }
         public int ID { get; set; }
+
+        public string StatusText
+        {
+            get
+            {
+                if (this.Status == false) return "Свободна";
+                else return "Занята";
+            }
+        }
     
         public virtual Classes Classes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

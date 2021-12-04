@@ -22,7 +22,7 @@
             <Button Name="BtnShowUsers" Click="ShowUsers" Height="80" Content="Пользователи" FontSize="40"/>
             <Button Name="BtnShowWorkers" Click="ShowWorkers" Height="80" Content="Работники" FontSize="40"/>
             <Button Name="BtnShowRooms" Click="ShowRooms" Height="80" Content="Комнаты" FontSize="40"/>
-            <Button Name="BtnShowOrders" Click="ShowOrders" Height="80" Content="Заказы" FontSize="40"/>
+            <Button Name="BtnShowOrders" Click="ShowOrders" Height="80" Content="Заказы" FontSize="40" Cursor="Hand"/>
             <Button Name="BtnShowClasses" Click="ShowClasses" Height="80" Content="Классы комнат" FontSize="38"/>
             <Button Name="BtnShowLodgers" Click="ShowLodgers" Height="80" Content="Постояльцы" FontSize="40"/>
             <Button Name="BtnShowLodgerGuests" Click="ShowLodgerGuests" Height="80" Content="Гости" FontSize="40"/>

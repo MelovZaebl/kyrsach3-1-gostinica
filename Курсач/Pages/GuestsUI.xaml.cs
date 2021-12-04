@@ -28,7 +28,10 @@ namespace Курсач.Pages
 
         private void Change(object sender, RoutedEventArgs e)
         {
-
+            LodgersGuests selectedGuest = GuestsTable.SelectedItem as LodgersGuests;
+            Lodgers lodger = selectedGuest.Lodgers;
+            Windows.GuestUpdate win = new Windows.GuestUpdate(selectedGuest, lodger, 0);
+            win.ShowDialog();
         }
     }
 }

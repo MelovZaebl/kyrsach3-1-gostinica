@@ -25,7 +25,8 @@
                 <ComboBox Name="CBPol" Style="{StaticResource ComboBoxFlatStyle}" Height="20" FontSize="13" Width="200" Margin="85 0 0 0"/>
             </WrapPanel>
             <Grid>
-                <Button Click="Edit" Content="Изменить" Width="100" Height="30" Margin="0 20 0 0"/>
+                <Button Name="btnSave" Click="Save" Content="Сохранить" Width="100" Height="30" Margin="0 20 0 0" Visibility="Hidden"/>
+                <Button Name="btnEdit" Click="Edit" Content="Изменить" Width="100" Height="30" Margin="0 20 0 0" Visibility="Hidden"/>
             </Grid>
         </StackPanel>
     </Grid>

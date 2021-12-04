@@ -21,12 +21,20 @@ namespace Курсач.Windows
     {
         public OrdersReg Order = new OrdersReg();
         public Lodgers Lodger = new Lodgers();
-        public OrderAdd()
+        public string WorkerFIO;
+        int i = 0;
+        public OrderAdd(string worker)
         {
             InitializeComponent();
             CStartD.SelectedDate = DateTime.Now;
             DataContext = Order;
-            CBRoom.ItemsSource = MainWindow.DB.Rooms.ToList();
+
+            WorkerFIO = worker;
+
+            Order.OrderDate = DateTime.Now;
+
+            CBRoom.ItemsSource = MainWindow.DB.Rooms.ToList().Where(r => r.Status == false);
+
             CBPol.Items.Add("Мужчина");
             CBPol.Items.Add("Женщина");
             if (Lodger.Pol == true)
@@ -41,7 +49,7 @@ namespace Курсач.Windows
             CBGuest.Items.Clear();
             Rooms SelectedRoom = CBRoom.SelectedItem as Rooms;
             var z = MainWindow.DB.Classes.ToList().Where(p => p.ClassID == SelectedRoom.Class).First();
-            for (int i = 0; i < z.SpotsCount - 1; i++)
+            for (i = 0; i < z.SpotsCount; i++)
             {
                 CBGuest.Items.Add(i);
             }
@@ -62,6 +70,14 @@ namespace Курсач.Windows
             {
                 error += "Введите телефон\n";
             }
+            if (CStartD.SelectedDate < DateTime.Now.Subtract(new TimeSpan(1,0,0,0)))
+            {
+                error += "Некорректная дата заселения";
+            }
+            if (CStopD.SelectedDate <= CStartD.SelectedDate )
+            {
+                error += "Некорректная дата выселения";
+            }
             if (error != "")
             {
                 MessageBox.Show(error, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -78,6 +94,36 @@ namespace Курсач.Windows
                     Lodger.Pol = false;
                 }
                 else Lodger.Pol = true;
+
+                Lodger.FIO = TBFIO.Text;
+                Lodger.Passport = TBPassport.Text;
+                Lodger.Phone = TBPhone.Text;
+                Rooms selectedRoom = CBRoom.SelectedItem as Rooms;
+                Lodger.Room = selectedRoom.ID;
+
+
+                MainWindow.DB.Lodgers.Add(Lodger);
+                MainWindow.DB.SaveChanges();
+
+                Order.LodgerID = Lodger.ID;
+                Order.WorkerFIO = WorkerFIO;
+
+                if ((int)CBGuest.SelectedValue != 0)
+                {
+                    for (int j = 1; j <= i; j++)
+                    {
+                        LodgersGuests guest = new LodgersGuests();
+                        GuestUpdate win = new GuestUpdate(guest, Lodger, 1);
+                        win.ShowDialog();
+                    }
+                    MainWindow.DB.OrdersReg.Add(Order);
+                    this.Close();
+                }
+                else
+                {
+                    MainWindow.DB.OrdersReg.Add(Order);
+                    this.Close();
+                }
             }
         }
     }
