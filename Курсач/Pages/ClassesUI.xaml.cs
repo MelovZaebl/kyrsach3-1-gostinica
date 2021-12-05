@@ -80,16 +80,22 @@ namespace Курсач.Pages
             {
                 if (MessageBox.Show("Вместе с данным классом удалятся и все комнаты данного класса!", "Предупреждение", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
                 {
-                    foreach (var room in MainWindow.DB.Rooms.ToList())
+                    int i= 0;
+                    foreach(Rooms deletedRoom in deletedClass.Rooms)
                     {
-                        if (room.Class == deletedClass.ClassID)
-                        {
-                            MainWindow.DB.Rooms.Remove(room);
-                        }
+                        if (deletedRoom.Status == true) i++;
                     }
-                    MainWindow.DB.Classes.Remove(deletedClass);
-                    MainWindow.DB.SaveChanges();
-                    UpdateAgents();
+                    if (i == 0)
+                    {
+                        foreach (Rooms deletedRoom in deletedClass.Rooms)
+                        {
+                            MainWindow.DB.Rooms.Remove(deletedRoom);
+                        }
+                        MainWindow.DB.Classes.Remove(deletedClass);
+                        MainWindow.DB.SaveChanges();
+                        UpdateAgents();
+                    }
+                    else MessageBox.Show("Невозможно удалить комнаты в которых кто-то живет!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else MessageBox.Show("Выберите запись для удаления!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
