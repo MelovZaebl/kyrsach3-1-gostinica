@@ -27,6 +27,14 @@ namespace Курсач.Windows
             DataContext = room;
             CBClasses.ItemsSource = MainWindow.DB.Classes.ToList();
 
+            int i = 0;
+            foreach(var lodg in MainWindow.DB.Lodgers.ToList())
+            {
+                if (lodg.Room == room.Room) i++;
+            }
+            if (i == 0) CBStatus.IsEnabled = false;
+            else CBStatus.IsEnabled = true;
+
             if(File.Exists(Room.Photo))
             {
                 ImageBrush RoomImg = new ImageBrush();

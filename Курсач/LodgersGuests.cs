@@ -20,7 +20,16 @@ namespace Курсач
         public string Passport { get; set; }
         public int ID { get; set; }
         public string Phone { get; set; }
-    
+
+        public string PolText
+        {
+            get
+            {
+                if (this.Pol == true) return "Мужчина";
+                else return "Женщина";
+            }
+        }
+
         public virtual Lodgers Lodgers { get; set; }
     }
 }

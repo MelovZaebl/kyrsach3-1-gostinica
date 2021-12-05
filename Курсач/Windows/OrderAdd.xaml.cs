@@ -116,12 +116,21 @@ namespace Курсач.Windows
                         GuestUpdate win = new GuestUpdate(guest, Lodger, 1);
                         win.ShowDialog();
                     }
+
                     MainWindow.DB.OrdersReg.Add(Order);
+
+                    Rooms rooma = MainWindow.DB.Rooms.ToList().Where(p => p.Room == Order.Room).First();
+                    rooma.Status = true;
+
+                    MainWindow.DB.SaveChanges();
                     this.Close();
                 }
                 else
                 {
                     MainWindow.DB.OrdersReg.Add(Order);
+                    Rooms rooma = MainWindow.DB.Rooms.ToList().Where(p => p.Room == Order.Room).First();
+                    rooma.Status = true;
+                    MainWindow.DB.SaveChanges();
                     this.Close();
                 }
             }
