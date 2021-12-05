@@ -130,6 +130,11 @@ namespace Курсач.Windows
             {
                 Room.Photo = "/Pics/RoomPlaceholder.png";
             }
+            var z = MainWindow.DB.Rooms.Where(r => r.Room == Room.Room).FirstOrDefault();
+            if (z != null)
+            {
+                error += "Комната с таким номером уже существует.\n";
+            }
             if (error != "")
             {
                 MessageBox.Show(error, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -158,6 +163,11 @@ namespace Курсач.Windows
             if (String.IsNullOrWhiteSpace(Room.Photo))
             {
                 Room.Photo = "/Pics/RoomPlaceholder.png";
+            }
+            var z = MainWindow.DB.Rooms.Where(r => r.Room == Room.Room).FirstOrDefault();
+            if (z != null)
+            {
+                error += "Комната с таким номером уже существует.\n";
             }
             if (error != "")
             {
