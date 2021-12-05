@@ -99,7 +99,7 @@ namespace Курсач.Windows
                 Lodger.Passport = TBPassport.Text;
                 Lodger.Phone = TBPhone.Text;
                 Rooms selectedRoom = CBRoom.SelectedItem as Rooms;
-                Lodger.Room = selectedRoom.ID;
+                Lodger.Room = selectedRoom.Room;
 
 
                 MainWindow.DB.Lodgers.Add(Lodger);
