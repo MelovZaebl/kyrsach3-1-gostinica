@@ -32,8 +32,8 @@ namespace Курсач.Windows
             {
                 if (lodg.Room == room.Room) i++;
             }
-            if (i == 0) CBStatus.IsEnabled = false;
-            else CBStatus.IsEnabled = true;
+            if (i == 0) CBStatus.IsEnabled = true;
+            else CBStatus.IsEnabled = false;
 
             if(File.Exists(Room.Photo))
             {

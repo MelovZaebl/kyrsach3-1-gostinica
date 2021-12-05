@@ -110,7 +110,7 @@ namespace Курсач.Windows
 
                 if ((int)CBGuest.SelectedValue != 0)
                 {
-                    for (int j = 1; j <= i; j++)
+                    for (int j = 1; j < i; j++)
                     {
                         LodgersGuests guest = new LodgersGuests();
                         GuestUpdate win = new GuestUpdate(guest, Lodger, 1);

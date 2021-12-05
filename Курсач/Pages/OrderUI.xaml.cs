@@ -46,7 +46,31 @@ namespace Курсач.Pages
 
         private void Delete(object sender, RoutedEventArgs e)
         {
-
+            if (OrdersTable.SelectedItem != null)
+            {
+                if (MessageBox.Show("Подтвердите удаление!", "Подтвердите удаление!", MessageBoxButton.OKCancel, MessageBoxImage.None) == MessageBoxResult.OK)
+                {
+                    OrdersReg deletedOrder = OrdersTable.SelectedItem as OrdersReg;
+                    List<LodgersGuests> guestToDelete = new List<LodgersGuests>();
+                    foreach (LodgersGuests deletedGuest in deletedOrder.Lodgers.LodgersGuests)
+                    {
+                        guestToDelete.Add(deletedGuest);
+                        //MainWindow.DB.LodgersGuests.Remove(deletedGuest);
+                    }
+                    foreach(LodgersGuests deletedGuest in guestToDelete)
+                    {
+                        MainWindow.DB.LodgersGuests.Remove(deletedGuest);
+                    }
+                    MainWindow.DB.Lodgers.Remove(deletedOrder.Lodgers);
+                    MainWindow.DB.OrdersReg.Remove(deletedOrder);
+                    Rooms deletedRoom = MainWindow.DB.Rooms.Where(r => r.Room == deletedOrder.Room).First();
+                    deletedRoom.Status = false;
+                    //deletedOrder.Rooms.Status = false;
+                    MainWindow.DB.SaveChanges();
+                }
+            }
+            else MessageBox.Show("Выберите заказ для удаления!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+            UpdateOrders();
         }
     }
 }
