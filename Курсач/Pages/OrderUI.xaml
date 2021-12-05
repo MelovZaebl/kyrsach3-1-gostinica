@@ -18,7 +18,7 @@
             <DataGrid Name="OrdersTable" IsReadOnly="True" AutoGenerateColumns="False" ColumnWidth="*">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding OrderID}" Width="30"/>
-                    <DataGridTextColumn Header="Комната" Binding="{Binding Room}" Width="90"/>
+                    <DataGridTextColumn Header="Комната" Binding="{Binding Rooms.Room}" Width="90"/>
                     <DataGridTextColumn Header="Дата оформления" Binding="{Binding OrderDate, StringFormat='{}{0:dd.MM.yyyy HH:mm}'}"/>
                     <DataGridTextColumn Header="ФИО постояльца" Binding="{Binding Lodgers.FIO}"/>
                     <DataGridTextColumn Header="Дата заселения" Binding="{Binding StartDate, StringFormat='{}{0:dd.MM.yyyy}'}" Width="150"/>

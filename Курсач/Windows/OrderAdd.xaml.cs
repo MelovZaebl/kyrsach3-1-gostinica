@@ -107,6 +107,7 @@ namespace Курсач.Windows
 
                 Order.LodgerID = Lodger.ID;
                 Order.WorkerFIO = WorkerFIO;
+                Order.Room = selectedRoom.ID;
 
                 if ((int)CBGuest.SelectedValue != 0)
                 {
@@ -119,7 +120,7 @@ namespace Курсач.Windows
 
                     MainWindow.DB.OrdersReg.Add(Order);
 
-                    Rooms rooma = MainWindow.DB.Rooms.ToList().Where(p => p.Room == Order.Room).First();
+                    Rooms rooma = MainWindow.DB.Rooms.ToList().Where(p => p.ID == Order.Room).First();
                     rooma.Status = true;
 
                     MainWindow.DB.SaveChanges();
@@ -128,7 +129,7 @@ namespace Курсач.Windows
                 else
                 {
                     MainWindow.DB.OrdersReg.Add(Order);
-                    Rooms rooma = MainWindow.DB.Rooms.ToList().Where(p => p.Room == Order.Room).First();
+                    Rooms rooma = MainWindow.DB.Rooms.ToList().Where(p => p.ID == Order.Room).First();
                     rooma.Status = true;
                     MainWindow.DB.SaveChanges();
                     this.Close();

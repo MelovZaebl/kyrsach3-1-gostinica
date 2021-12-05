@@ -52,6 +52,11 @@ namespace Курсач.Windows
             {
                 error += "Введите стоимость за день.\n";
             }
+            var z = MainWindow.DB.Classes.Where(c => c.ClassName == classs.ClassName).FirstOrDefault();
+            if(z != null)
+            {
+                error += "Класс с таким названием уже существует.\n";
+            }
             if (error != "")
             {
                 MessageBox.Show(error, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -100,6 +105,11 @@ namespace Курсач.Windows
             {
                 error += "Введите стоимость за день.\n";
             }
+            var z = MainWindow.DB.Classes.Where(c => c.ClassName == classs.ClassName).FirstOrDefault();
+            if (z != null)
+            {
+                error += "Класс с таким названием уже существует.\n";
+            }
             if (error != "")
             {
                 MessageBox.Show(error, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -107,22 +117,9 @@ namespace Курсач.Windows
             }
             else
             {
-                int i = 0;
-                foreach (var classa in MainWindow.DB.Classes.ToList())
-                {
-                    if (classa.ClassName == classs.ClassName)
-                    {
-                        MessageBox.Show("Класс с таким названием уже существует", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                        i++;
-                        break;
-                    }
-                }
-                if (i == 0)
-                {
-                    MainWindow.DB.Classes.Add(classs);
-                    MainWindow.DB.SaveChanges();
-                    this.Close();
-                }
+                MainWindow.DB.Classes.Add(classs);
+                MainWindow.DB.SaveChanges();
+                this.Close();
             }
         }
     }

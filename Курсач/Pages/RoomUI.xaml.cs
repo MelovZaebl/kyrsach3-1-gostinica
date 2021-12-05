@@ -50,16 +50,31 @@ namespace Курсач.Pages
             else
             {
                 Rooms room = RoomView.SelectedItem as Rooms;
-                Windows.RoomUpdate win = new Windows.RoomUpdate(room, 1);
-                win.ShowDialog();
-                UpdateRooms();
+                int i = 0;
+                foreach(OrdersReg RoomOrder in MainWindow.DB.OrdersReg.ToList())
+                {
+                    if(RoomOrder.Room == room.ID) i++;
+                }
+                if (i == 0)
+                {
+                    Windows.RoomUpdate win = new Windows.RoomUpdate(room, 1);
+                    win.ShowDialog();
+                    UpdateRooms();
+                }
+                else MessageBox.Show("На данную комнату есть активная бронь!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private void Delete(object sender, RoutedEventArgs e)
         {
             Rooms room = RoomView.SelectedItem as Rooms;
-            MainWindow.DB.Rooms.Remove(room);
+            if (room.Status == false)
+            {
+                MainWindow.DB.Rooms.Remove(room);
+                MainWindow.DB.SaveChanges();
+                UpdateRooms();
+            }
+            else MessageBox.Show("Удаление невозможно, в комнате кто-то живет.", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }

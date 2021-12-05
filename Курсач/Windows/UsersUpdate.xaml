@@ -22,7 +22,7 @@
             </WrapPanel>
             <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
                 <TextBlock FontSize="15" Text="Должность"/>
-                <ComboBox Height="20" FontSize="15" Name="AddDoljnost" Text="{Binding Doljnost}" Width="200" Margin="70 0 0 0"/>
+                <ComboBox Height="20" FontSize="15" Name="AddDoljnost" Style="{StaticResource ComboBoxFlatStyle}" Text="{Binding Doljnost}" Width="200" Margin="70 0 0 0"/>
             </WrapPanel>
             <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
                 <TextBlock FontSize="15" Text="Телефон"/>
