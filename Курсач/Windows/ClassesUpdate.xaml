@@ -13,11 +13,11 @@
         </WrapPanel>
         <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
             <TextBlock FontSize="15" Text="Кол-во мест"/>
-            <TextBox Height="20" FontSize="15" Text="{Binding SpotsCount}" Width="200" Margin="75 0 0 0"/>
+            <TextBox PreviewTextInput="SpotsInput" Height="20" FontSize="15" Text="{Binding SpotsCount}" Width="200" Margin="75 0 0 0"/>
         </WrapPanel>
         <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
             <TextBlock FontSize="15" Text="Стоимость в день"/>
-            <TextBox Height="20" FontSize="15" Text="{Binding DailyPrice}" Width="200" Margin="31 0 0 0"/>
+            <TextBox PreviewTextInput="PriceInput" Height="20" FontSize="15" Text="{Binding DailyPrice}" Width="200" Margin="31 0 0 0"/>
         </WrapPanel>
         <Grid>
             <Button Name="btnSave" Click="Save" Content="Сохранить" Width="100" Height="30" Margin="0 20 0 0" Visibility="Hidden"/>

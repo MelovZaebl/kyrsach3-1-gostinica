@@ -18,7 +18,7 @@
         <StackPanel Name="AddSP" Visibility="Hidden">
             <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
                 <TextBlock FontSize="15" Text="ФИО работника"/>
-                <TextBox MaxLength="50" Height="20" FontSize="15" Name="AddFIO" Text="{Binding FIO}" Width="200" Margin="38 0 0 0"/>
+                <TextBox PreviewTextInput="FIOInput" MaxLength="50" Height="20" FontSize="15" Name="AddFIO" Text="{Binding FIO}" Width="200" Margin="38 0 0 0"/>
             </WrapPanel>
             <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
                 <TextBlock FontSize="15" Text="Должность"/>
@@ -26,7 +26,7 @@
             </WrapPanel>
             <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
                 <TextBlock FontSize="15" Text="Телефон"/>
-                <TextBox MaxLength="11" Height="20" FontSize="15" Name="AddPhone" Text="{Binding Phone}" Width="200" Margin="85 0 0 0"/>
+                <TextBox PreviewTextInput="PhoneInput" MaxLength="11" Height="20" FontSize="15" Name="AddPhone" Text="{Binding Phone}" Width="200" Margin="85 0 0 0"/>
             </WrapPanel>
         </StackPanel>
         <Grid>

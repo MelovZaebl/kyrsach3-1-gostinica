@@ -183,5 +183,10 @@ namespace Курсач.Windows
                 this.Close();
             }
         }
+
+        private void RoomInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!Char.IsDigit(e.Text, 0)) e.Handled = true;
+        }
     }
 }

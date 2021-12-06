@@ -10,15 +10,15 @@
         <StackPanel Background="{StaticResource MainBG}">
             <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
                 <TextBlock FontSize="15" Text="ФИО"/>
-                <TextBox Height="20" FontSize="15" Text="{Binding FIO}" Width="200" Margin="80 0 0 0"/>
+                <TextBox PreviewTextInput="FIOInput" Height="20" FontSize="15" Text="{Binding FIO}" Width="200" Margin="80 0 0 0"/>
             </WrapPanel>
             <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
                 <TextBlock FontSize="15" Text="Пасспорт"/>
-                <TextBox Height="20" FontSize="15" Text="{Binding Passport}" Width="200" Margin="50 0 0 0"/>
+                <TextBox PreviewTextInput="PassportInput" Height="20" FontSize="15" Text="{Binding Passport}" Width="200" Margin="50 0 0 0"/>
             </WrapPanel>
             <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
                 <TextBlock FontSize="15" Text="Телефон"/>
-                <TextBox Height="20" FontSize="15" Text="{Binding Phone}" Width="200" Margin="53 0 0 0"/>
+                <TextBox PreviewTextInput="PhoneInput" Height="20" FontSize="15" Text="{Binding Phone}" Width="200" Margin="53 0 0 0"/>
             </WrapPanel>
             <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
                 <TextBlock FontSize="15" Text="Пол"/>

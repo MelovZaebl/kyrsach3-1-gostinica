@@ -5,19 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Курсач.Windows"
         mc:Ignorable="d"
-        Title="Добавление заказа" Height="700" Width="450">
+        Title="Добавление заказа" Height="700" Width="450" WindowStartupLocation="CenterScreen">
     <StackPanel Background="{StaticResource MainBG}">
         <WrapPanel Margin="10" HorizontalAlignment="Center">
             <TextBlock Text="ФИО постояльца" Margin="0, 0, 50, 0"/>
-            <TextBox Name="TBFIO" Width="200"/>
+            <TextBox PreviewTextInput="FIOInput" Name="TBFIO" Width="200"/>
         </WrapPanel>
         <WrapPanel Margin="10" HorizontalAlignment="Center">
             <TextBlock Text="Паспорт" Margin="0, 0, 98, 0"/>
-            <TextBox Name="TBPassport" Width="200"/>
+            <TextBox PreviewTextInput="PassportInput" Name="TBPassport" Width="200"/>
         </WrapPanel>
         <WrapPanel Margin="10" HorizontalAlignment="Center">
             <TextBlock Text="Телефон" Margin="0, 0, 94, 0"/>
-            <TextBox Name="TBPhone" Width="200"/>
+            <TextBox PreviewTextInput="PhoneInput" Name="TBPhone" Width="200"/>
         </WrapPanel>
         <WrapPanel Margin="10" HorizontalAlignment="Center">
             <TextBlock Text="Пол" Margin="0, 0, 122, 0"/>
