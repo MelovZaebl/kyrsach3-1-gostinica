@@ -49,7 +49,7 @@ namespace Курсач.Windows
             {
                 error += "Введите номер комнаты.\n";
             }
-            if (String.IsNullOrWhiteSpace(Lodger.Phone.ToString()))
+            if (String.IsNullOrWhiteSpace(Lodger.Phone.ToString()) || Lodger.Phone.Count() != 11)
             {
                 error += "Введите телефон.\n";
             }
