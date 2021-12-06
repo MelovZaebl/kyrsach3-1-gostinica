@@ -62,7 +62,7 @@ namespace Курсач.Windows
             {
                 error += "Введите ФИО.\n";
             }
-            if (String.IsNullOrWhiteSpace(TBPassport.Text) || TBPassport.Text.Count() > 10)
+            if (String.IsNullOrWhiteSpace(TBPassport.Text) || TBPassport.Text.Count() != 10)
             {
                 error += "Введите паспорт\n";
             }

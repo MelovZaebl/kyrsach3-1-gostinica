@@ -133,7 +133,7 @@ namespace Курсач.Windows
             var z = MainWindow.DB.Rooms.Where(r => r.Room == Room.Room).FirstOrDefault();
             if (z != null)
             {
-                error += "Комната с таким номером уже существует.\n";
+                if (Room != z) error += "Комната с таким номером уже существует.\n";
             }
             if (error != "")
             {

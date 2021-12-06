@@ -63,7 +63,7 @@ namespace Курсач.Pages
                     }
                     MainWindow.DB.Lodgers.Remove(deletedOrder.Lodgers);
                     MainWindow.DB.OrdersReg.Remove(deletedOrder);
-                    Rooms deletedRoom = MainWindow.DB.Rooms.Where(r => r.Room == deletedOrder.Room).First();
+                    Rooms deletedRoom = MainWindow.DB.Rooms.Where(r => r.ID == deletedOrder.Room).First();
                     deletedRoom.Status = false;
                     //deletedOrder.Rooms.Status = false;
                     MainWindow.DB.SaveChanges();

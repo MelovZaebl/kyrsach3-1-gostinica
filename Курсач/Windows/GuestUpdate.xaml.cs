@@ -96,7 +96,7 @@ namespace Курсач.Windows
             {
                 error += "Введите паспорт.\n";
             }
-            if (String.IsNullOrWhiteSpace(Guest.Phone.ToString()))
+            if (String.IsNullOrWhiteSpace(Guest.Phone.ToString()) || Guest.Phone.Count() != 11)
             {
                 error += "Введите телефон.\n";
             }
