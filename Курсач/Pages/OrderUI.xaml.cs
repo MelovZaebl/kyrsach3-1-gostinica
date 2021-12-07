@@ -27,6 +27,13 @@ namespace Курсач.Pages
             worker = AuthUser;
             OrdersTable.Items.Clear();
             UpdateOrders();
+
+            foreach (OrdersReg Order in MainWindow.DB.OrdersReg)
+            {
+                if (DateTime.Compare(DateTime.Today, Order.StartDate) < 0) Order.Rooms.Status = false;
+                else if (DateTime.Compare(DateTime.Today, Order.StopDate) > 0) Order.Rooms.Status = false;
+                else Order.Rooms.Status = true;
+            }
         }
         private void UpdateOrders()
         {

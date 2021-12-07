@@ -33,7 +33,8 @@ namespace Курсач.Windows
 
             Order.OrderDate = DateTime.Now;
 
-            CBRoom.ItemsSource = MainWindow.DB.Rooms.ToList().Where(r => r.Status == false);
+            //CBRoom.ItemsSource = MainWindow.DB.Rooms.ToList().Where(r => r.Status == false); Можно регу только на свободные комнаты
+            CBRoom.ItemsSource = MainWindow.DB.Rooms.ToList();
 
             CBPol.Items.Add("Мужчина");
             CBPol.Items.Add("Женщина");
@@ -57,6 +58,8 @@ namespace Курсач.Windows
 
         private void Save(object sender, RoutedEventArgs e)
         {
+            Rooms selectedRoom = CBRoom.SelectedItem as Rooms;
+            Order.Room = selectedRoom.ID;
             string error = String.Empty;
             if (String.IsNullOrWhiteSpace(TBFIO.Text) || TBFIO.Text.Count() > 50)
             {
@@ -78,6 +81,15 @@ namespace Курсач.Windows
             {
                 error += "Некорректная дата выселения";
             }
+            int RoomCheck = 0;
+            foreach (OrdersReg RoomOrder in MainWindow.DB.OrdersReg.ToList().Where(o => o.Room == Order.Room))
+            {
+                if (Order.StartDate.CompareTo(RoomOrder.StartDate) < 0 && Order.StopDate.CompareTo(RoomOrder.StartDate) < 0) MessageBox.Show("Все ок");
+                else if (Order.StartDate.CompareTo(RoomOrder.StopDate) > 0) MessageBox.Show("Все ок");
+                else RoomCheck++;
+            }
+            if (RoomCheck != 0) error += "На эти даты уже есть бронь";
+
             if (error != "")
             {
                 MessageBox.Show(error, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -98,7 +110,6 @@ namespace Курсач.Windows
                 Lodger.FIO = TBFIO.Text;
                 Lodger.Passport = TBPassport.Text;
                 Lodger.Phone = TBPhone.Text;
-                Rooms selectedRoom = CBRoom.SelectedItem as Rooms;
                 Lodger.Room = selectedRoom.Room;
 
 
@@ -107,7 +118,6 @@ namespace Курсач.Windows
 
                 Order.LodgerID = Lodger.ID;
                 Order.WorkerFIO = WorkerFIO;
-                Order.Room = selectedRoom.ID;
 
                 if ((int)CBGuest.SelectedValue != 0)
                 {
@@ -120,8 +130,9 @@ namespace Курсач.Windows
 
                     MainWindow.DB.OrdersReg.Add(Order);
 
-                    Rooms rooma = MainWindow.DB.Rooms.ToList().Where(p => p.ID == Order.Room).First();
-                    rooma.Status = true;
+                    if (DateTime.Compare(DateTime.Today, Order.StartDate) < 0) Order.Rooms.Status = false;
+                    else if (DateTime.Compare(DateTime.Today, Order.StopDate) > 0) Order.Rooms.Status = false;
+                    else Order.Rooms.Status = true;
 
                     MainWindow.DB.SaveChanges();
                     this.Close();
