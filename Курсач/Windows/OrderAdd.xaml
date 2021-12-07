@@ -36,7 +36,7 @@
             <Calendar Name="CStopD" SelectedDate="{Binding StopDate}"/>
         </WrapPanel>
         <WrapPanel Margin="10" HorizontalAlignment="Center">
-            <TextBlock Text="Кол-во гостей" Margin="0, 0, 74, 0"/>
+            <TextBlock Text="Кол-во гостей" Margin="0, 0, 68, 0"/>
             <ComboBox Name="CBGuest" Style="{StaticResource ComboBoxFlatStyle}" Width="200"/>
         </WrapPanel>
         <Button Click="Save" Width="100" Height="25" Content="Сохранить" Margin="10"/>

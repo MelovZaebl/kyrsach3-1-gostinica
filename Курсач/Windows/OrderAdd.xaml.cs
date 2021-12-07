@@ -84,8 +84,8 @@ namespace Курсач.Windows
             int RoomCheck = 0;
             foreach (OrdersReg RoomOrder in MainWindow.DB.OrdersReg.ToList().Where(o => o.Room == Order.Room))
             {
-                if (Order.StartDate.CompareTo(RoomOrder.StartDate) < 0 && Order.StopDate.CompareTo(RoomOrder.StartDate) < 0) MessageBox.Show("Все ок");
-                else if (Order.StartDate.CompareTo(RoomOrder.StopDate) > 0) MessageBox.Show("Все ок");
+                if (Order.StartDate.CompareTo(RoomOrder.StartDate) < 0 && Order.StopDate.CompareTo(RoomOrder.StartDate) < 0);
+                else if (Order.StartDate.CompareTo(RoomOrder.StopDate) > 0);
                 else RoomCheck++;
             }
             if (RoomCheck != 0) error += "На эти даты уже есть бронь";
@@ -119,6 +119,14 @@ namespace Курсач.Windows
                 Order.LodgerID = Lodger.ID;
                 Order.WorkerFIO = WorkerFIO;
 
+                decimal Price = 0;
+                var z = MainWindow.DB.Rooms.ToList().Where(r => r.ID == Order.Room).First();
+                for (int i = Order.StartDate.Day; i <= Order.StopDate.Day; i++)
+                {
+                    Price += z.Classes.DailyPrice;
+                }
+
+                MessageBox.Show($"Сумма к оплате: {Price.ToString("c0")}"); // попробовать сделать через вычисляемое поле
                 if ((int)CBGuest.SelectedValue != 0)
                 {
                     for (int j = 1; j < i; j++)
