@@ -25,7 +25,7 @@ namespace Курсач.Pages
         {
             InitializeComponent();
             order = Order;
-            DataContext = Order;
+            DataContext = order;
             RoomImg.Source = new BitmapImage(new Uri(order.Rooms.Photo));
 
             TBNum.Text = $"Номер комнаты: {order.Rooms.Room}";
@@ -41,7 +41,12 @@ namespace Курсач.Pages
             }
             TBTotalPrice.Text = $"Стоимость проживания: {Price.ToString("c0")}";
 
-            
+            LodgerFIO.Text = $"ФИО: {order.Lodgers.FIO}";
+            LodgerPassport.Text = $"Паспорт: {order.Lodgers.Passport}";
+            LodgerPhone.Text = $"Телефон: {order.Lodgers.Phone}";
+            LodgerPolText.Text = $"Пол: {order.Lodgers.PolText}";
+
+            GuestTable.ItemsSource = order.Lodgers.LodgersGuests;
         }
     }
 }

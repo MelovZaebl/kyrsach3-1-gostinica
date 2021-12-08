@@ -38,5 +38,13 @@
                 <TextBlock Margin="10" Name="LodgerPolText"/>
             </StackPanel>
         </Grid>
+        <DataGrid Grid.Row="2" Name="GuestTable" IsReadOnly="True" AutoGenerateColumns="False" ColumnWidth="*">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ФИО" Binding="{Binding FIO}"/>
+                <DataGridTextColumn Header="Паспорт" Binding="{Binding Passport}"/>
+                <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}"/>
+                <DataGridTextColumn Header="Пол" Binding="{Binding PolText}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>
