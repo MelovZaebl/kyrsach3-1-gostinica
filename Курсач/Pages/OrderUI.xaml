@@ -15,7 +15,7 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <ScrollViewer>
-            <DataGrid Name="OrdersTable" IsReadOnly="True" AutoGenerateColumns="False" ColumnWidth="*">
+            <DataGrid PreviewMouseDoubleClick="MoreInfo" Name="OrdersTable" IsReadOnly="True" AutoGenerateColumns="False" ColumnWidth="*">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding OrderID}" Width="30"/>
                     <DataGridTextColumn Header="Комната" Binding="{Binding Rooms.Room}" Width="90"/>

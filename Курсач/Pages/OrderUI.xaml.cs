@@ -79,5 +79,15 @@ namespace Курсач.Pages
             else MessageBox.Show("Выберите заказ для удаления!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
             UpdateOrders();
         }
+
+        private void MoreInfo(object sender, MouseButtonEventArgs e)
+        {
+            if (OrdersTable.SelectedItem != null)
+            {
+                OrdersReg SelectedOrder = OrdersTable.SelectedItem as OrdersReg;
+                NavigationService.Navigate(new Pages.OrderInfo(SelectedOrder));
+            }
+            else MessageBox.Show("Сука не выбралось");
+        }
     }
 }

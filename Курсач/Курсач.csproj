@@ -106,6 +106,9 @@
     <Compile Include="Pages\MainUI.xaml.cs">
       <DependentUpon>MainUI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\OrderInfo.xaml.cs">
+      <DependentUpon>OrderInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\OrderUI.xaml.cs">
       <DependentUpon>OrderUI.xaml</DependentUpon>
     </Compile>
@@ -186,6 +189,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\MainUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\OrderInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
