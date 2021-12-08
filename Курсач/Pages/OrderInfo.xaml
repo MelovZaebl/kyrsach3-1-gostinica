@@ -24,10 +24,19 @@
                 <StackPanel Width="252">
                     <TextBlock Margin="10" Name="TBNum"/>
                     <TextBlock Margin="10" Name="TBClass"/>
+                    <TextBlock Margin="10" Name="TBStartDate"/>
+                    <TextBlock Margin="10" Name="TBStopDate"/>
                     <TextBlock Margin="10" Name="TBDailyPrice"/>
-                    <TextBlock Margin="10" Nmae="TBTotalPrice"/>
+                    <TextBlock Margin="10" Name="TBTotalPrice"/>
                 </StackPanel>
             </WrapPanel>
+            <StackPanel Grid.Column="1">
+                <TextBlock FontSize="20" Margin="10" Text="Постоялец" HorizontalAlignment="Center"/>
+                <TextBlock Margin="10" Name="LodgerFIO"/>
+                <TextBlock Margin="10" Name="LodgerPassport"/>
+                <TextBlock Margin="10" Name="LodgerPhone"/>
+                <TextBlock Margin="10" Name="LodgerPolText"/>
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>

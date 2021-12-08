@@ -27,8 +27,21 @@ namespace Курсач.Pages
             order = Order;
             DataContext = Order;
             RoomImg.Source = new BitmapImage(new Uri(order.Rooms.Photo));
+
             TBNum.Text = $"Номер комнаты: {order.Rooms.Room}";
             TBClass.Text = $"Класс: {order.Rooms.Classes.ClassName}";
+            TBStartDate.Text = $"Дата заселения: {order.StartDate.Day}.{order.StartDate.Month}.{order.StartDate.Year}";
+            TBStopDate.Text = $"Дата выселения: {order.StopDate.Day}.{order.StopDate.Month}.{order.StopDate.Year}";
+            TBDailyPrice.Text = $"Цена в сутки: {order.Rooms.Classes.DailyPrice.ToString("c0")}";
+            decimal Price = 0;
+            var z = MainWindow.DB.Rooms.ToList().Where(r => r.ID == order.Room).First();
+            for (int i = order.StartDate.Day; i <= order.StopDate.Day; i++)
+            {
+                Price += z.Classes.DailyPrice;
+            }
+            TBTotalPrice.Text = $"Стоимость проживания: {Price.ToString("c0")}";
+
+            
         }
     }
 }
