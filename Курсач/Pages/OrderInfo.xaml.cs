@@ -27,7 +27,8 @@ namespace Курсач.Pages
             order = Order;
             DataContext = Order;
             RoomImg.Source = new BitmapImage(new Uri(order.Rooms.Photo));
-            
+            TBNum.Text = $"Номер комнаты: {order.Rooms.Room}";
+            TBClass.Text = $"Класс: {order.Rooms.Classes.ClassName}";
         }
     }
 }

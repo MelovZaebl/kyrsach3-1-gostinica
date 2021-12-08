@@ -24,7 +24,8 @@
                 <StackPanel Width="252">
                     <TextBlock Margin="10" Name="TBNum"/>
                     <TextBlock Margin="10" Name="TBClass"/>
-                    <TextBlock Margin="10" Name="TBStatus"/>
+                    <TextBlock Margin="10" Name="TBDailyPrice"/>
+                    <TextBlock Margin="10" Nmae="TBTotalPrice"/>
                 </StackPanel>
             </WrapPanel>
         </Grid>
