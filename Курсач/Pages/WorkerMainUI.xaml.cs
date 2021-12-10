@@ -20,6 +20,7 @@ namespace Курсач.Pages
     /// </summary>
     public partial class WorkerMainUI : Page
     {
+        public string AuthWorker;
         public WorkerMainUI(string AuthUser)
         {
             InitializeComponent();
@@ -33,6 +34,7 @@ namespace Курсач.Pages
                     UserFIO.Text = worker.FIO;
                 }
             }
+            AuthWorker = AuthUser;
         }
 
         private void ShowRooms(object sender, RoutedEventArgs e)
@@ -43,7 +45,7 @@ namespace Курсач.Pages
             BtnShowLodgers.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#414141");
             BtnShowLodgerGuests.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#414141");
 
-            ContentFrame.Navigate(new RoomUI());
+            ContentFrame.Navigate(new RoomUI(1));
         }
 
         private void ShowOrders(object sender, RoutedEventArgs e)
@@ -53,6 +55,8 @@ namespace Курсач.Pages
             BtnShowClasses.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#414141");
             BtnShowLodgers.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#414141");
             BtnShowLodgerGuests.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#414141");
+
+            ContentFrame.Navigate(new OrderUI(AuthWorker));
         }
 
         private void ShowLodgers(object sender, RoutedEventArgs e)
@@ -90,6 +94,8 @@ namespace Курсач.Pages
             BtnShowClasses.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#414141");
             BtnShowLodgers.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#414141");
             BtnShowLodgerGuests.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#515151");
+
+            ContentFrame.Navigate(new GuestsUI());
         }
     }
 }

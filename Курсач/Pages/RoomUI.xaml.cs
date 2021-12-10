@@ -20,7 +20,7 @@ namespace Курсач.Pages
     /// </summary>
     public partial class RoomUI : Page
     {
-        public RoomUI()
+        public RoomUI(int style)
         {
             InitializeComponent();
             RoomView.Items.Clear();
@@ -31,6 +31,17 @@ namespace Курсач.Pages
                 if (DateTime.Compare(DateTime.Today, Order.StartDate) < 0) Order.Rooms.Status = false;
                 else if (DateTime.Compare(DateTime.Today, Order.StopDate) > 0) Order.Rooms.Status = false;
                 else Order.Rooms.Status = true;
+            }
+
+            if (style == 1)
+            {
+                btnAdd.Visibility = Visibility.Hidden;
+                btnDelete.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                btnAdd.Visibility = Visibility.Visible;
+                btnDelete.Visibility = Visibility.Visible;
             }
         }
 
