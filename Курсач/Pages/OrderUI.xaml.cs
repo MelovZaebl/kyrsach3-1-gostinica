@@ -87,7 +87,6 @@ namespace Курсач.Pages
                 OrdersReg SelectedOrder = OrdersTable.SelectedItem as OrdersReg;
                 NavigationService.Navigate(new Pages.OrderInfo(SelectedOrder));
             }
-            else MessageBox.Show("Сука не выбралось");
         }
     }
 }

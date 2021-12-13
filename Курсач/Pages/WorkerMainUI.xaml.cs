@@ -83,8 +83,7 @@ namespace Курсач.Pages
             BtnShowLodgers.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#414141");
             BtnShowLodgerGuests.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#414141");
 
-            int style = 0;
-            ContentFrame.Navigate(new ClassesUI(style));
+            ContentFrame.Navigate(new ClassesUI(0));
         }
 
         private void ShowLodgerGuests(object sender, RoutedEventArgs e)
