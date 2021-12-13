@@ -118,7 +118,7 @@ namespace Курсач.Windows
         private void EditSave(object sender, RoutedEventArgs e)
         {
             string error = String.Empty;
-            if (String.IsNullOrWhiteSpace(Room.Room.ToString()))
+            if (String.IsNullOrWhiteSpace(Room.Room.ToString()) || Room.Room <= 0)
             {
                 error += "Введите номер комнаты.\n";
             }
@@ -152,7 +152,7 @@ namespace Курсач.Windows
         private void AddSave(object sender, RoutedEventArgs e)
         {
             string error = String.Empty;
-            if (String.IsNullOrWhiteSpace(Room.Room.ToString()))
+            if (String.IsNullOrWhiteSpace(Room.Room.ToString()) || Room.Room <= 0)
             {
                 error += "Введите номер комнаты.\n";
             }

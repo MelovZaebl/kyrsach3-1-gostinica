@@ -28,12 +28,26 @@ namespace Курсач.Pages
             OrdersTable.Items.Clear();
             UpdateOrders();
 
-            foreach (OrdersReg Order in MainWindow.DB.OrdersReg)
+
+            foreach(Rooms room in MainWindow.DB.Rooms)
             {
-                if (DateTime.Compare(DateTime.Today, Order.StartDate) < 0) Order.Rooms.Status = false;
-                else if (DateTime.Compare(DateTime.Today, Order.StopDate) > 0) Order.Rooms.Status = false;
-                else Order.Rooms.Status = true;
+                int i = 0;
+                foreach(OrdersReg Order in room.OrdersReg)
+                {
+                    if (DateTime.Compare(DateTime.Today, Order.StartDate) < 0) ;
+                    else if (DateTime.Compare(DateTime.Today, Order.StopDate) > 0) ;
+                    else i++;
+                }
+                if (i != 0) room.Status = true;
+                else room.Status = false;
             }
+            //foreach (OrdersReg Order in MainWindow.DB.OrdersReg)
+            //{
+
+            //    if (DateTime.Compare(DateTime.Today, Order.StartDate) < 0) Order.Rooms.Status = false;
+            //    else if (DateTime.Compare(DateTime.Today, Order.StopDate) > 0) Order.Rooms.Status = false;
+            //    else Order.Rooms.Status = true;
+            //}
         }
         private void UpdateOrders()
         {
