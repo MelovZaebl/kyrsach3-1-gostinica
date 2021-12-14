@@ -121,10 +121,14 @@ namespace Курсач.Windows
 
                 decimal Price = 0;
                 var z = MainWindow.DB.Rooms.ToList().Where(r => r.ID == Order.Room).First();
-                for (int i = Order.StartDate.Day; i <= Order.StopDate.Day; i++)
+                for(int i = 0; i <= (Order.StopDate.Date - Order.StartDate.Date).Days; i++)
                 {
                     Price += z.Classes.DailyPrice;
                 }
+                //for (int i = Order.StartDate.Day; i <= Order.StopDate.Day; i++)
+                //{
+                //    Price += z.Classes.DailyPrice;
+                //}
 
                 MessageBox.Show($"Сумма к оплате: {Price.ToString("c0")}"); // попробовать сделать через вычисляемое поле
                 if ((int)CBGuest.SelectedValue != 0)

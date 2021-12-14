@@ -72,6 +72,7 @@ namespace Курсач.Pages
                 }
                 else
                 {
+                    MainWindow.DB.Workers.Remove(deletedUser.Workers);
                     MainWindow.DB.Users.Remove(deletedUser);
                     MainWindow.DB.SaveChanges();
                     UpdateAgents();

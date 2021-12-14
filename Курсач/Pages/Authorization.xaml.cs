@@ -49,7 +49,7 @@ namespace Курсач
                     loginCheck = 0;
                     if (user.Username == LoginBox.Text && user.Password == PasswordVisible.Text)
                     {
-                        AuthUser = user.Username;
+                        AuthUser = user.Workers.FIO;
                         foreach(var worker in MainWindow.DB.Workers.ToList())
                         {
                             if (worker.ID == user.ID)
@@ -78,7 +78,7 @@ namespace Курсач
                     loginCheck = 0;
                     if (user.Username == LoginBox.Text && user.Password == PasswordHidden.Password)
                     {
-                        AuthUser = user.Username;
+                        AuthUser = user.Workers.FIO;
                         foreach (var worker in MainWindow.DB.Workers.ToList())
                         {
                             if (worker.ID == user.ID)

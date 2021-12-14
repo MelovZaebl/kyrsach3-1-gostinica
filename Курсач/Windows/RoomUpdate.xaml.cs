@@ -73,7 +73,7 @@ namespace Курсач.Windows
             }
         }
 
-        public readonly string DirPath = AppDomain.CurrentDomain.BaseDirectory + @"\Pics";
+        public readonly string DirPath = AppDomain.CurrentDomain.BaseDirectory + @"\Pics\";
 
         private void ImgDrop(object sender, DragEventArgs e)
         {

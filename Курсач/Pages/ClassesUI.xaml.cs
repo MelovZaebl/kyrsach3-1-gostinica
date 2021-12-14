@@ -80,22 +80,35 @@ namespace Курсач.Pages
             {
                 if (MessageBox.Show("Вместе с данным классом удалятся и все комнаты данного класса!", "Предупреждение", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
                 {
-                    int i= 0;
-                    foreach(Rooms deletedRoom in deletedClass.Rooms)
+                    foreach(Rooms room in MainWindow.DB.Rooms.ToList().Where(r => r.Class == deletedClass.ClassID))
                     {
-                        if (deletedRoom.Status == true) i++;
-                    }
-                    if (i == 0)
-                    {
-                        foreach (Rooms deletedRoom in deletedClass.Rooms)
+                        if(room.OrdersReg.Count == 0)
                         {
-                            MainWindow.DB.Rooms.Remove(deletedRoom);
+                            int i = 0;
+                            //foreach (Rooms deletedRoom in deletedClass.Rooms)
+                            //{
+                            //    if (deletedRoom.Status == true) i++;
+                            //}
+                            if (i == 0)
+                            {
+                                List<Rooms> roomi = new List<Rooms>();
+                                foreach (Rooms deletedRoom in deletedClass.Rooms)
+                                {
+                                    roomi.Add(deletedRoom);
+                                    //MainWindow.DB.Rooms.Remove(deletedRoom);
+                                }
+                                foreach(Rooms rooma in roomi)
+                                {
+                                    MainWindow.DB.Rooms.Remove(rooma);
+                                }
+                                MainWindow.DB.Classes.Remove(deletedClass);
+                                MainWindow.DB.SaveChanges();
+                                UpdateAgents();
+                            }
+                            else MessageBox.Show("Невозможно удалить комнаты в которых кто-то живет!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
-                        MainWindow.DB.Classes.Remove(deletedClass);
-                        MainWindow.DB.SaveChanges();
-                        UpdateAgents();
+                        else MessageBox.Show("Невозможно удалить комнаты с активной бронью", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
-                    else MessageBox.Show("Невозможно удалить комнаты в которых кто-то живет!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else MessageBox.Show("Выберите запись для удаления!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);

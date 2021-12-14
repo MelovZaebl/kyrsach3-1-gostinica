@@ -72,7 +72,7 @@ namespace Курсач.Pages
 
         private void ExitToAuth(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new Authorization());
         }
 
         private void ShowClasses(object sender, RoutedEventArgs e)
