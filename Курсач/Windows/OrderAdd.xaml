@@ -5,39 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Курсач.Windows"
         mc:Ignorable="d"
-        Title="Добавление заказа" Height="700" Width="450" WindowStartupLocation="CenterScreen">
+        Title="Добавление заказа" Height="750" Width="450" WindowStartupLocation="CenterScreen" FontSize="20">
     <StackPanel Background="{StaticResource MainBG}">
         <WrapPanel Margin="10" HorizontalAlignment="Center">
             <TextBlock Text="ФИО постояльца" Margin="0, 0, 50, 0"/>
             <TextBox PreviewTextInput="FIOInput" Name="TBFIO" Width="200"/>
         </WrapPanel>
         <WrapPanel Margin="10" HorizontalAlignment="Center">
-            <TextBlock Text="Паспорт" Margin="0, 0, 98, 0"/>
+            <TextBlock Text="Паспорт" Margin="0, 0, 132, 0"/>
             <TextBox PreviewTextInput="PassportInput" Name="TBPassport" Width="200"/>
         </WrapPanel>
         <WrapPanel Margin="10" HorizontalAlignment="Center">
-            <TextBlock Text="Телефон" Margin="0, 0, 94, 0"/>
+            <TextBlock Text="Телефон" Margin="0, 0, 126, 0"/>
             <TextBox PreviewTextInput="PhoneInput" Name="TBPhone" Width="200"/>
         </WrapPanel>
         <WrapPanel Margin="10" HorizontalAlignment="Center">
-            <TextBlock Text="Пол" Margin="0, 0, 122, 0"/>
+            <TextBlock Text="Пол" Margin="0, 0, 172, 0"/>
             <ComboBox Name="CBPol" Style="{StaticResource ComboBoxFlatStyle}" Width="200"/>
         </WrapPanel>
         <WrapPanel Margin="10" HorizontalAlignment="Center">
-            <TextBlock Text="Комната" Margin="0, 0, 98, 0"/>
+            <TextBlock Text="Комната" Margin="0, 0, 130, 0"/>
             <ComboBox Name="CBRoom" SelectionChanged="RoomChange" SelectedValue="{Binding Room}" SelectedValuePath="Room" DisplayMemberPath="Room" Style="{StaticResource ComboBoxFlatStyle}" Width="200"/>
+        </WrapPanel>
+        <WrapPanel Margin="10" HorizontalAlignment="Center">
+            <TextBlock Text="Кол-во гостей" Margin="0, 0, 82, 0"/>
+            <ComboBox Name="CBGuest" Style="{StaticResource ComboBoxFlatStyle}" Width="200"/>
         </WrapPanel>
         <WrapPanel Margin="10" HorizontalAlignment="Center">
             <TextBlock Text="Дата заселения" Margin="0, 0, 80, 0"/>
             <Calendar Name="CStartD" SelectedDate="{Binding StartDate}"/>
         </WrapPanel>
-        <WrapPanel Margin="10" HorizontalAlignment="Center">
+        <WrapPanel Margin="10"  HorizontalAlignment="Center">
             <TextBlock Text="Дата выселения" Margin="0, 0, 80, 0"/>
             <Calendar Name="CStopD" SelectedDate="{Binding StopDate}"/>
-        </WrapPanel>
-        <WrapPanel Margin="10" HorizontalAlignment="Center">
-            <TextBlock Text="Кол-во гостей" Margin="0, 0, 68, 0"/>
-            <ComboBox Name="CBGuest" Style="{StaticResource ComboBoxFlatStyle}" Width="200"/>
         </WrapPanel>
         <Button Click="Save" Width="100" Height="25" Content="Сохранить" Margin="10"/>
     </StackPanel>

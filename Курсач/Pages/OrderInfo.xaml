@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Курсач.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="810" d:DesignWidth="1231"
-      Title="OrderInfo" FontSize="15">
+      Title="OrderInfo" FontSize="20">
 
     <Grid Background="{StaticResource MainBG}">
         <Grid.RowDefinitions>
@@ -32,19 +32,23 @@
             </WrapPanel>
             <StackPanel Grid.Column="1">
                 <TextBlock FontSize="20" Margin="10" Text="Постоялец" HorizontalAlignment="Center"/>
-                <TextBlock Margin="10" Name="LodgerFIO"/>
-                <TextBlock Margin="10" Name="LodgerPassport"/>
-                <TextBlock Margin="10" Name="LodgerPhone"/>
-                <TextBlock Margin="10" Name="LodgerPolText"/>
+                <TextBlock Margin="100, 10" Name="LodgerFIO"/>
+                <TextBlock Margin="100, 10" Name="LodgerPassport"/>
+                <TextBlock Margin="100, 10" Name="LodgerPhone"/>
+                <TextBlock Margin="100, 10" Name="LodgerPolText"/>
             </StackPanel>
         </Grid>
-        <DataGrid Grid.Row="2" Name="GuestTable" IsReadOnly="True" AutoGenerateColumns="False" ColumnWidth="*">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="ФИО" Binding="{Binding FIO}"/>
-                <DataGridTextColumn Header="Паспорт" Binding="{Binding Passport}"/>
-                <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}"/>
-                <DataGridTextColumn Header="Пол" Binding="{Binding PolText}"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <StackPanel Grid.Row="2">
+            <TextBlock Margin="5" Text="Гости" HorizontalAlignment="Center"/>
+            <DataGrid Name="GuestTable" IsReadOnly="True" AutoGenerateColumns="False" ColumnWidth="*">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ФИО" Binding="{Binding FIO}"/>
+                    <DataGridTextColumn Header="Паспорт" Binding="{Binding Passport}"/>
+                    <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}"/>
+                    <DataGridTextColumn Header="Пол" Binding="{Binding PolText}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        
     </Grid>
 </Page>

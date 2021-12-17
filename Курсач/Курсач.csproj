@@ -133,6 +133,9 @@
     <Compile Include="Users.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Check.xaml.cs">
+      <DependentUpon>Check.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\ClassesUpdate.xaml.cs">
       <DependentUpon>ClassesUpdate.xaml</DependentUpon>
     </Compile>
@@ -213,6 +216,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\WorkersUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Check.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

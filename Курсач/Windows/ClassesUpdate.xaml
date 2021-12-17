@@ -5,19 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Курсач.Windows"
         mc:Ignorable="d"
-        Title="Редактирование записи" Height="230" Width="400" WindowStartupLocation="CenterScreen">
+        Title="Редактирование записи" Height="230" Width="530" WindowStartupLocation="CenterScreen" FontSize="20">
     <StackPanel Background="{StaticResource MainBG}">
         <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
-            <TextBlock FontSize="15" Text="Наименование класса"/>
+            <TextBlock Text="Наименование класса"/>
             <TextBox Height="20" FontSize="15" Text="{Binding ClassName}" Width="200" Margin="2 0 0 0"/>
         </WrapPanel>
         <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
-            <TextBlock FontSize="15" Text="Кол-во мест"/>
-            <TextBox PreviewTextInput="SpotsInput" Height="20" FontSize="15" Text="{Binding SpotsCount}" Width="200" Margin="75 0 0 0"/>
+            <TextBlock Text="Кол-во мест"/>
+            <TextBox PreviewTextInput="SpotsInput" Height="20" FontSize="15" Text="{Binding SpotsCount}" Width="200" Margin="98 0 0 0"/>
         </WrapPanel>
         <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
-            <TextBlock FontSize="15" Text="Стоимость в день"/>
-            <TextBox PreviewTextInput="PriceInput" Height="20" FontSize="15" Text="{Binding DailyPrice}" Width="200" Margin="31 0 0 0"/>
+            <TextBlock Text="Стоимость в день"/>
+            <TextBox PreviewTextInput="PriceInput" Height="20" FontSize="15" Text="{Binding DailyPrice}" Width="200" Margin="44 0 0 0"/>
         </WrapPanel>
         <Grid>
             <Button Name="btnSave" Click="Save" Content="Сохранить" Width="100" Height="30" Margin="0 20 0 0" Visibility="Hidden"/>

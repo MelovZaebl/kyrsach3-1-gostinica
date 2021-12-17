@@ -5,24 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Курсач.Windows"
         mc:Ignorable="d"
-        Title="Редактирование записи" Height="300" Width="400" WindowStartupLocation="CenterScreen">
+        Title="Редактирование записи" Height="300" Width="400" WindowStartupLocation="CenterScreen" FontSize="20">
     <Grid>
         <StackPanel Background="{StaticResource MainBG}">
             <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
-                <TextBlock FontSize="15" Text="ФИО"/>
-                <TextBox PreviewTextInput="FIOInput" Height="20" FontSize="15" Text="{Binding FIO}" Width="200" Margin="80 0 0 0"/>
+                <TextBlock Text="ФИО"/>
+                <TextBox PreviewTextInput="FIOInput" Height="20" FontSize="15" Text="{Binding FIO}" Width="200" Margin="88 0 0 0"/>
             </WrapPanel>
             <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
-                <TextBlock FontSize="15" Text="Паспорт"/>
+                <TextBlock Text="Паспорт"/>
                 <TextBox PreviewTextInput="PassportInput" Height="20" FontSize="15" Text="{Binding Passport}" Width="200" Margin="56 0 0 0"/>
             </WrapPanel>
             <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
-                <TextBlock FontSize="15" Text="Телефон"/>
-                <TextBox PreviewTextInput="PhoneInput" Height="20" FontSize="15" Text="{Binding Phone}" Width="200" Margin="53 0 0 0"/>
+                <TextBlock Text="Телефон"/>
+                <TextBox PreviewTextInput="PhoneInput" Height="20" FontSize="15" Text="{Binding Phone}" Width="200" Margin="52 0 0 0"/>
             </WrapPanel>
             <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
-                <TextBlock FontSize="15" Text="Пол"/>
-                <ComboBox Name="CBPol" Style="{StaticResource ComboBoxFlatStyle}" Height="20" FontSize="13" Width="200" Margin="85 0 0 0"/>
+                <TextBlock Text="Пол"/>
+                <ComboBox Name="CBPol" Style="{StaticResource ComboBoxFlatStyle}" Height="20" FontSize="13" Width="200" Margin="98 0 0 0"/>
             </WrapPanel>
             <Grid>
                 <Button Name="btnSave" Click="Save" Content="Сохранить" Width="100" Height="30" Margin="0 20 0 0" Visibility="Hidden"/>

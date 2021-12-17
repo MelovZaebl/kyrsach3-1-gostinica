@@ -20,7 +20,6 @@ namespace Курсач
     /// </summary>
     public partial class Authorization : Page
     {
-        public static string AuthUser;
         public Authorization()
         {
             InitializeComponent();
@@ -49,19 +48,18 @@ namespace Курсач
                     loginCheck = 0;
                     if (user.Username == LoginBox.Text && user.Password == PasswordVisible.Text)
                     {
-                        AuthUser = user.Workers.FIO;
                         foreach(var worker in MainWindow.DB.Workers.ToList())
                         {
                             if (worker.ID == user.ID)
                             {
                                 if (worker.Doljnost == "Администратор приложения")
                                 {
-                                    NavigationService.Navigate(new Pages.MainUI(AuthUser));
+                                    NavigationService.Navigate(new Pages.MainUI(user.Workers.FIO));
                                     break;
                                 }
                                 else
                                 {
-                                    NavigationService.Navigate(new Pages.WorkerMainUI(AuthUser));
+                                    NavigationService.Navigate(new Pages.WorkerMainUI(user.Workers.FIO));
                                     break;
                                 }
                             }
@@ -78,19 +76,18 @@ namespace Курсач
                     loginCheck = 0;
                     if (user.Username == LoginBox.Text && user.Password == PasswordHidden.Password)
                     {
-                        AuthUser = user.Workers.FIO;
                         foreach (var worker in MainWindow.DB.Workers.ToList())
                         {
                             if (worker.ID == user.ID)
                             {
                                 if (worker.Doljnost == "Администратор приложения")
                                 {
-                                    NavigationService.Navigate(new Pages.MainUI(AuthUser));
+                                    NavigationService.Navigate(new Pages.MainUI(user.Workers.FIO));
                                     break;
                                 }
                                 else
                                 {
-                                    NavigationService.Navigate(new Pages.WorkerMainUI(AuthUser));
+                                    NavigationService.Navigate(new Pages.WorkerMainUI(user.Workers.FIO));
                                     break;
                                 }
                             }

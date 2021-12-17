@@ -119,25 +119,21 @@ namespace Курсач.Windows
                 Order.LodgerID = Lodger.ID;
                 Order.WorkerFIO = WorkerFIO;
 
-                decimal Price = 0;
-                var z = MainWindow.DB.Rooms.ToList().Where(r => r.ID == Order.Room).First();
-                for(int i = 0; i <= (Order.StopDate.Date - Order.StartDate.Date).Days; i++)
-                {
-                    Price += z.Classes.DailyPrice;
-                }
-                //for (int i = Order.StartDate.Day; i <= Order.StopDate.Day; i++)
+                //decimal Price = 0;
+                //var z = MainWindow.DB.Rooms.ToList().Where(r => r.ID == Order.Room).First();
+                //for (int i = 0; i <= (Order.StopDate.Date - Order.StartDate.Date).Days; i++)
                 //{
                 //    Price += z.Classes.DailyPrice;
                 //}
-
-                MessageBox.Show($"Сумма к оплате: {Price.ToString("c0")}"); // попробовать сделать через вычисляемое поле
+                //TPrice.Text = Price.ToString("c0");
+                //MessageBox.Show($"Сумма к оплате: {Price.ToString("c0")}", "Сумма к оплате", MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.None); // попробовать сделать через вычисляемое поле
                 if ((int)CBGuest.SelectedValue != 0)
                 {
                     for (int j = 1; j < i; j++)
                     {
                         LodgersGuests guest = new LodgersGuests();
-                        GuestUpdate win = new GuestUpdate(guest, Lodger, 1);
-                        win.ShowDialog();
+                        GuestUpdate win1 = new GuestUpdate(guest, Lodger, 1);
+                        win1.ShowDialog();
                     }
 
                     MainWindow.DB.OrdersReg.Add(Order);
@@ -147,6 +143,8 @@ namespace Курсач.Windows
                     else Order.Rooms.Status = true;
 
                     MainWindow.DB.SaveChanges();
+                    Check win2 = new Check(WorkerFIO, Order);
+                    win2.ShowDialog();
                     this.Close();
                 }
                 else
@@ -155,7 +153,10 @@ namespace Курсач.Windows
                     Rooms rooma = MainWindow.DB.Rooms.ToList().Where(p => p.ID == Order.Room).First();
                     rooma.Status = true;
                     MainWindow.DB.SaveChanges();
+                    Check win2 = new Check(WorkerFIO, Order);
+                    win2.ShowDialog();
                     this.Close();
+                    
                 }
             }
         }
